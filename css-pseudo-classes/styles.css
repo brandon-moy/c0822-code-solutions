@@ -1,0 +1,23 @@
+* {
+  box-sizing: border-box;
+}
+
+button {
+  font-size: 20px;
+  padding: 6px 16px;
+}
+
+button:hover {
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+
+thead {
+  background-color: black;
+  color: white;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #d2d2d2;
+}
