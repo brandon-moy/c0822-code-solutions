@@ -61,8 +61,8 @@ label {
 
 .select-box {
   border-radius: 0.25rem;
-  border-width: 0.5px;
-  border-color: lightgray;
+  border-width: 0.75px;
+  border-color: rgb(167 167 167);
   box-shadow: 0;
   width: 24rem;
   height: 2.25rem;
