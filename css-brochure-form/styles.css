@@ -9,6 +9,7 @@ h3 {
   font-weight: 600;
   font-size: 1rem;
   margin-bottom: 10px;
+  letter-spacing: 0.1rem;
 }
 
 input.input-box {
@@ -45,7 +46,6 @@ label {
   font-size: 13px;
   padding: 6.5px 1.25rem;
   font-weight: 500;
-  margin-top: 0.5rem;
 }
 
 .input-box {
@@ -66,6 +66,11 @@ label {
   box-shadow: 0;
   width: 24rem;
   height: 2.25rem;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.75rem;
   margin-top: 0.25rem;
+}
+
+.submit-button {
+  width: 24rem;
+  text-align: right;
 }
