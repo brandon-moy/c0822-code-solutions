@@ -50,8 +50,7 @@ label {
 
 .input-box {
   border-radius: 0.25rem;
-  border-width: 0.75px;
-  border-color: rgb(167 167 167);
+  border: 0.75px solid rgb(167 167 167);
   box-shadow: 0;
   width: 24rem;
   height: 2.25rem;
@@ -61,8 +60,7 @@ label {
 
 .select-box {
   border-radius: 0.25rem;
-  border-width: 0.75px;
-  border-color: rgb(167 167 167);
+  border: 0.75px solid rgb(167 167 167);
   box-shadow: 0;
   width: 24rem;
   height: 2.25rem;
