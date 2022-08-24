@@ -1,0 +1,9 @@
+h1,
+h2 {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+p {
+  font-family: 'Nanum Gothic', sans-serif;
+  line-height: 2rem;
+}
