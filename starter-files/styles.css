@@ -1,0 +1,69 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  width: 800px;
+  margin: auto;
+}
+
+.links > a {
+  text-decoration: none;
+  font-family: Avenir, Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 0.75rem;
+  color: grey;
+  src: url("avenir.woff2") format("woff2");
+  padding: 0 0.5rem;
+}
+
+#contact-us {
+  color: white;
+  background-color: navy;
+  padding: 0.5rem 0.6rem;
+  border-radius: 0.25rem;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: lightgray;
+}
+
+#get-started {
+  border: 1px solid navy;
+  background-color: navy;
+  border-radius: 0.25rem;
+  padding: 0.5rem 1.25rem;
+  color: white;
+  text-decoration: none;
+  font-family: Avenir, Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  src: url("avenir.woff2") format("woff2");
+}
+
+.emr {
+  background-image: url("images/hero.jpg");
+}
+
+.preferred-locations {
+  text-align: center;
+  background-color: lightgray;
+}
+
+.location-header {
+  width: 400px;
+  margin: auto;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+}
+
+.location {
+  margin: auto;
+}
