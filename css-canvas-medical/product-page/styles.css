@@ -1,0 +1,57 @@
+body {
+  font-family: Avenir, sans-serif;
+  color: rgb(110 110 110);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container {
+  width: 1130px;
+  margin: 0 auto;
+}
+
+.hero {
+  position: relative;
+  height: 525px;
+}
+
+.hero-image {
+  background-image: url("../images/product/product-header.jpg");
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  filter: brightness(85%) contrast(75%) saturate(95%);
+}
+
+.hero-text {
+  padding: 4.75rem;
+  position: relative;
+  color: white;
+}
+
+.two-column {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.column-half {
+  flex-basis: 50%;
+}
+
+img:not(.canvas-logo-blue) {
+  width: 100%;
+}
+
+.section-text {
+  padding: 2rem;
+}
