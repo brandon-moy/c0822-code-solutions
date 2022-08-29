@@ -1,0 +1,40 @@
+body {
+  box-sizing: border-box;
+  font-family: Barlow, sans-serif;
+}
+
+.container {
+  width: 1225px;
+  margin: auto;
+}
+
+.container-header {
+  text-align: center;
+  font-size: 26px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.column-quarter {
+  flex-basis: 25%;
+  text-align: center;
+}
+
+.screen-image {
+  width: 90%;
+}
+
+.screen-icon {
+  width: 20%;
+}
+
+.icon-header {
+  font-size: 15px;
+}
+
+.icon-description {
+  font-size: 13px;
+}
