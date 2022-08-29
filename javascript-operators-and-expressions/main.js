@@ -16,7 +16,7 @@ var isAcidic = pH < 7;
 var headCount = 300;
 var isSparta = (headCount === 300);
 var motto = fullName;
-motto = motto + ' is the GOAT';
+motto += ' is the GOAT';
 
 console.log('value of area:', area);
 console.log('typeof area:', typeof area);
