@@ -7,10 +7,42 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-bottom: 2rem;
+  margin: 2rem 0 8rem;
+  border-bottom: 1px double rgb(235 235 235);
+}
+
+li > a {
+  text-decoration: none;
+  color: white;
+}
+
+.nav-links > a {
+  color: gray;
+  text-decoration: none;
+  font-family: Avenir, sans-serif;
+  font-size: 18px;
+  margin-left: 2.75rem;
+}
+
+#contact-us {
+  padding: 0.75rem 1.25rem;
+  background: #0a4265;
+  margin-left: 1rem;
+  border-radius: 0.25rem;
+  color: white;
+}
+
+.canvas-logo-blue {
+  width: 9.5rem;
 }
 
 .container {
-  width: 1130px;
+  margin: 0 auto;
+}
+
+.margin {
+  width: 1100px;
   margin: 0 auto;
 }
 
@@ -35,6 +67,16 @@ header {
   padding: 4.75rem;
   position: relative;
   color: white;
+  width: 67%;
+  line-height: 1.5rem;
+  font-size: 18px;
+}
+
+.hero-text > h2 {
+  font-family: "Tiempos Headline", sans-serif;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 3rem;
 }
 
 .two-column {
@@ -48,10 +90,122 @@ header {
   flex-basis: 50%;
 }
 
+.column-quarter {
+  flex-basis: 25%;
+}
+
 img:not(.canvas-logo-blue) {
   width: 100%;
 }
 
-.section-text {
-  padding: 2rem;
+.section-text-right {
+  padding-left: 8.25rem;
+}
+
+.section-text-left {
+  padding-right: 8.25rem;
+}
+
+li > h3 {
+  font-weight: 400;
+  font-size: 20px;
+  margin-bottom: 0;
+}
+
+.section-text > h3 {
+  font-family: "Tiempos Headline", sans-serif;
+  font-size: 29px;
+  font-weight: 500;
+}
+
+.section-text > p:not(.section-quote) {
+  font-family: Avenir, sans-serif;
+  line-height: 1.5rem;
+}
+
+.section-text > a {
+  text-decoration: none;
+  color: #0a4265;
+}
+
+.section-quote {
+  font-family: "Tiempos Headline", sans-serif;
+  font-style: italic;
+  font-size: 15px;
+}
+
+.learn-more {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.learn-more-header {
+  font-family: "Tiempos Headline", sans-serif;
+  font-weight: 400;
+  font-size: 32px;
+  color: rgb(95 95 95);
+}
+
+.learn-more-text {
+  font-size: 17px;
+}
+
+.get-started-button {
+  text-decoration: none;
+  color: white;
+  background-color: #0a4265;
+  font-size: 20px;
+  padding: 1rem 3rem;
+  border-radius: 0.25rem;
+}
+
+.location-information {
+  display: flex;
+  background-color: #525351;
+  padding-top: 7.5rem;
+  padding-left: 6.5rem;
+  height: 450px;
+  width: 1300px;
+  margin: 0 auto;
+}
+
+.grey-background {
+  margin: 0 auto;
+  background-color: rgb(206 206 206);
+}
+
+img.canvas-logo-white {
+  width: 29%;
+}
+
+ul {
+  list-style-type: none;
+  color: white;
+}
+
+.address {
+  padding: 0;
+  margin-top: 2rem;
+  line-height: 1.75rem;
+  font-size: 17px;
+}
+
+.info-links {
+  font-size: 20px;
+  line-height: 3rem;
+}
+
+footer {
+  margin: 4rem auto;
+  display: flex;
+  width: 1100px;
+}
+
+.privacy-contact {
+  margin-right: 2.25rem;
+  font-weight: 600;
+  font-size: 17px;
+  color: rgb(92 92 92);
+  text-decoration: none;
 }
