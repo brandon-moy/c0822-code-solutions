@@ -4,7 +4,7 @@
 
 body {
   font-family: "DM Sans", sans-serif;
-  width: 1150px;
+  width: 1200px;
   margin: auto;
 }
 
@@ -19,14 +19,13 @@ h2 {
 
 .column-fifth {
   flex-basis: 20%;
-  padding: 0.5rem;
 }
 
 img {
-  width: 97%;
+  width: 90%;
   height: 83%;
   object-fit: stretch;
-  filter: brightness(110%);
+  filter: brightness(105%) saturate(110%);
 }
 
 .description-block {
