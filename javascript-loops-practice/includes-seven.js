@@ -8,13 +8,13 @@
 // if no return false
 
 function includesSeven(array) {
-  var output = [];
+  var output;
   for (var i = 0; i < array.length; i++) {
     if (array[i] === 7) {
-      output.push('true');
+      output = true;
     }
   }
-  if (output[0] === 'true') {
+  if (output === true) {
     return true;
   } else {
     return false;
