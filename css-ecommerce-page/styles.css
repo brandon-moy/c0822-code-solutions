@@ -23,9 +23,14 @@ h2 {
 }
 
 img {
-  width: 100%;
-  height: 80%;
+  width: 97%;
+  height: 83%;
   object-fit: stretch;
+  filter: brightness(105%);
+}
+
+.description-block {
+  margin-top: 0.5rem;
 }
 
 p {
@@ -45,6 +50,7 @@ p {
 .size {
   padding-left: 0.25rem;
   border-left: 1px solid rgb(206 206 206);
+  font-size: 12px;
 }
 
 .peach-background {
