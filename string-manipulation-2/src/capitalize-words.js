@@ -11,9 +11,17 @@
 
 function capitalizeWords(string) {
   var output = '';
-  var array = string.split(' ');
+  var lowercase = string.toLowerCase();
+  var array = lowercase.split(' ');
   for (var i = 0; i < array.length; i++) {
-    output = output + ' ' + array[i].charAt(0).toUpperCase();
+    var word = array[i];
+    var newWord = word.charAt(0).toUpperCase();
+    newWord += word.slice(1);
+    if (i !== 0) {
+      output = output + ' ' + newWord;
+    } else {
+      output += newWord;
+    }
   }
   return output;
 }
