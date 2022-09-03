@@ -9,10 +9,15 @@
 // return output
 
 function omit(source, keys) {
-  var output = source;
+  var output = {};
+  for (var key in source) {
+    var newProp = key;
+    var newValue = source[key];
+    output[newProp] = newValue;
+  }
   for (var i = 0; i < keys.length; i++) {
-    if (source[keys[i]] !== undefined) {
-      delete output[keys];
+    if (output[keys[i]] !== undefined) {
+      delete output[keys[i]];
     }
   }
   return output;
