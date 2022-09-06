@@ -10,20 +10,23 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="margin">
-    <img class="canvas-logo-blue" src="images/logo-blue.svg" alt="canvas-logo-blue">
-    <div>
-      <a class="nav-links" href="product-page/product.html">Product</a>
-      <a class="nav-links" href="implementation-page/implementation.html">Implementation</a>
-      <a class="nav-links" href="about-us.html">About Us</a>
-      <a class="nav-links" href="blog.html">Blog</a>
-      <a class="contact-us" href="contact-us.html">Contact Us</a>
-    </div>
-  </header>
-  <div class="emr margin">
-    <div class="cover margin">
-      <h2>The EMR Reimagined for Primary Care</h2>
-      <p>
+  <div class="full-border">
+    <header class="margin">
+      <img class="canvas-logo-blue" src="images/logo-blue.svg" alt="canvas-logo-blue">
+      <div>
+        <a class="nav-links" href="product-page/product.html">Product</a>
+        <a class="nav-links" href="implementation-page/implementation.html">Implementation</a>
+        <a class="nav-links" href="about-us.html">About Us</a>
+        <a class="nav-links" href="blog.html">Blog</a>
+        <a class="contact-us" href="contact-us.html">Contact Us</a>
+      </div>
+    </header>
+  </div>
+  <div class="hero margin">
+    <div class="hero-image"></div>
+    <div class="hero-text-section">
+      <h3 class="hero-header">The EMR Reimagined for Primary Care</h3>
+      <p class="hero-text">
         Can't remember the last time you talked with a patient without focusing
         on the EMR? Canvas lets you rediscover joy in the work you do. Capture
         meaningful data, identify gaps in care, and move seamlessly between tasks
@@ -31,65 +34,73 @@
         team stays up-to-speed. Be a better doctor with Canvas, designed for
         primary care providers with the help of primary care providers.
       </p>
-      <a id="get-started1" href="get-started.html">Get Started</a>
+      <a class="get-started-button" href="get-started.html">Get Started</a>
     </div>
   </div>
-  <div class="preferred-locations margin">
-    <div class="location-header">
-      <h3 class="clinicians-h">Clinicians Prefer Canvas</h3>
-      <p class="clinicians-p">
-        Physician-owned primary care practices across the country have
-        already made Canvas the fabric of their care.
-      </p>
-    </div>
-    <div class="row">
-      <p>Cascade Family Practice, Portland OR</p>
-      <p>Ward Medical Clinic, Bonifay FL</p>
-    </div>
-    <div class="row">
-      <p>Temescal Creek Medicine, Oakland CA</p>
-      <p>Caribou Medical, Towanda PA</p>
-    </div>
-    <div class="row">
-      <p>San Juan Healthcare, Friday Harbor WA</p>
-      <p>Bay Tree Family Care, Red Bay AL</p>
+  <div class="grey-background">
+    <div class="preferred-locations margin">
+      <div class="location-header">
+        <h3 class="clinicians-h">Clinicians Prefer Canvas</h3>
+        <p class="clinicians-p">
+          Physician-owned primary care practices across the country have
+          already made Canvas the fabric of their care.
+        </p>
+      </div>
+      <div class="row">
+        <p>Cascade Family Practice, Portland OR</p>
+        <p>Ward Medical Clinic, Bonifay FL</p>
+      </div>
+      <div class="row">
+        <p>Temescal Creek Medicine, Oakland CA</p>
+        <p>Caribou Medical, Towanda PA</p>
+      </div>
+      <div class="row">
+        <p>San Juan Healthcare, Friday Harbor WA</p>
+        <p>Bay Tree Family Care, Red Bay AL</p>
+      </div>
     </div>
   </div>
   <div class="learn-more margin">
-    <div>
-      <h3 class="learn-more-h">Ready to learn more?</h3>
+    <div class="learn-more-half">
+      <h3>Ready to learn more?</h3>
       <p>Schedule a private meeting now</p>
     </div>
-    <a id="get-started2" href="get-started.html">Get Started</a>
+    <a href="#" class="get-started-button">Get Started</a>
   </div>
-  <div class="contact-info">
-    <div class="column-half">
-      <img src="images/logo-white.png" alt="canvas-logo-white" id="canvas-logo-white">
-      <p class="address">
-        2307 Irving Street, Suite 228
-        <br>San Francisco CA 94122</br>
-        (800) 370-1416
-        <br>
-        <a href="mailto:info@canvasmedical.com">info@canvasmedical.com</a>
-        </br>
-      </p>
-    </div>
-    <div class="column-quarter">
-      <h3>company</h3>
-      <a id="about-us-bottom" href="about-us.html">About Us</a>
-      <a id="blog-bottom" href="blog.html">Blog</a>
-    </div>
-    <div class="column-quarter">
-      <h3>product</h3>
-      <a id="product-bottom" href="product.html">Product</a>
-      <a id="implementation-bottom" href="implementation.html">Implementation</a>
-      <a id="health-plans-bottom">For Health Plans</a>
-      <a id="security-bottom">Security</a>
+  <div class="dark-grey-background">
+    <div class="contact-info">
+      <div class="contact-box margin">
+        <div class="column-half">
+          <img src="images/logo-white.png" alt="canvas-logo-white" id="canvas-logo-white">
+          <ul class="address">
+            <li>2307 Irving Street, Suite 228</li>
+            <li>San Francisco CA 94122</li>
+            <li class="contact-links"><a href="tel:+8003701416">(800) 370-1416</a></li>
+            <li class="contact-links"><a href="mailto:info@canvasmedical.com">info@canvasmedical.com</a></li>
+          </ul>
+        </div>
+        <div class="column-quarter">
+          <h3 class="column-quarter-header">company</h3>
+          <ul>
+            <li class="info-links"><a href="about-us.html">About Us</a></li>
+            <li class="info-links"><a href="blog.html">Blog</a></li>
+          </ul>
+        </div>
+        <div class="column-quarter">
+          <h3 class="column-quarter-header">product</h3>
+          <ul>
+            <li class="info-links"><a href="product.html">Product</a></li>
+            <li class="info-links"><a href="implementation.html">Implementation</a></li>
+            <li class="info-links"><a>For Health Plans</a></li>
+            <li class="info-links"><a>Security</a></li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="footer margin">
-    <a>Privacy &amp; Terms</a>
-    <a id="contact-us-footer" href="contact-us.html">Contact Us</a>
-  </div>
+  <footer>
+    <a href="#" class="privacy-contact">Privacy &amp; Terms</a>
+    <a href="#" class="privacy-contact">Contact Us</a>
+  </footer>
 </body>
 </html>

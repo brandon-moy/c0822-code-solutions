@@ -3,6 +3,9 @@ header {
   justify-content: space-between;
   align-items: center;
   padding-bottom: 1.75rem;
+}
+
+.full-border {
   border-bottom: 1px solid rgb(231 231 231);
 }
 
@@ -35,11 +38,11 @@ body {
 }
 
 .canvas-logo-blue {
-  width: 9.75rem;
+  width: 9.5rem;
 }
 
 #canvas-logo-white {
-  width: 10rem;
+  width: 9.5rem;
 }
 
 #get-started1 {
@@ -68,46 +71,54 @@ body {
   margin-top: 2rem;
 }
 
-.emr {
+.hero {
   position: relative;
+  height: 525px;
+  margin-top: 8.5rem;
+  margin-bottom: 4rem;
+}
+
+.hero-image {
   background-image: url("images/hero.jpg");
-  background-position: center;
   background-size: cover;
-  margin: auto;
-  width: 87.5%;
-  height: 650px;
-  color: white;
-}
-
-.cover {
+  background-position: center;
   position: absolute;
-  background: rgb(88 88 88 / 50%);
-  width: 100%;
-  height: 100%;
-  margin: 0;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  filter: brightness(85%) contrast(75%);
 }
 
-.cover > h2 {
+.hero-text-section {
+  color: white;
+  position: absolute;
+  width: 56%;
+  padding: 2rem 0 0 4rem;
+}
+
+.hero-header {
   font-family: "Tiempos Headline", sans-serif;
+  font-size: 38px;
   font-weight: 400;
-  font-size: 40px;
-  width: 50%;
-  padding-left: 5.25rem;
-  padding-top: 3.5rem;
+  margin-bottom: 1rem;
 }
 
-.cover > p {
-  width: 47.7%;
-  padding-left: 5.25rem;
-  font-family: Avenir, Arial, Helvetica, sans-serif;
-  letter-spacing: 0.5px;
-  line-height: 1.75rem;
+.hero-text {
+  line-height: 1.5rem;
+  font-size: 17px;
+  margin-bottom: 3rem;
 }
 
 .preferred-locations {
   text-align: center;
-  background-color: rgb(252 252 252);
   color: #6e6e6e;
+}
+
+.grey-background {
+  background-color: rgb(252 252 252);
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 .learn-more-h,
@@ -128,14 +139,6 @@ body {
   line-height: 2rem;
 }
 
-.learn-more p {
-  font-family: Avenir, sans-serif;
-  font-size: 17px;
-  margin: 0 auto 5.5rem;
-  letter-spacing: 0.75px;
-  color: #6e6e6e;
-}
-
 .row {
   display: flex;
   justify-content: space-around;
@@ -146,23 +149,63 @@ body {
 }
 
 .learn-more {
-  margin-top: 9rem;
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
+  border-top: 1px solid rgb(231 231 231);
+  padding-top: 1rem;
+  margin-top: 12rem;
+  margin-bottom: 1.25rem;
+}
+
+.learn-more-half > h3 {
+  font-family: "Tiempos Headline", sans-serif;
+  font-size: 31px;
+  font-weight: 400;
+  margin-bottom: 0.75rem;
+}
+
+.learn-more-half > p {
+  font-size: 17px;
+}
+
+.get-started-button {
+  text-decoration: none;
+  color: white;
+  background-color: #0a4265;
+  font-size: 20px;
+  border-radius: 0.25rem;
+  padding: 1rem 2.75rem;
+}
+
+.dark-grey-background {
+  background-color: rgb(77 77 77);
 }
 
 .contact-info {
-  background-color: #525351;
+  width: 1300px;
+  padding: 5.5rem;
+  margin: auto;
+}
+
+.contact-box {
   display: flex;
   color: white;
-  font-family: Avenir, sans-serif;
 }
 
 .column-half {
   flex-basis: 50%;
-  flex-wrap: wrap;
-  padding: 5rem;
+}
+
+.column-quarter {
+  flex-basis: 25%;
+}
+
+.address {
+  padding: 0;
+  margin-top: 2rem;
+  line-height: 1.75rem;
+  font-size: 17px;
 }
 
 .column-half > p {
@@ -171,29 +214,39 @@ body {
   font-size: 18px;
 }
 
-.column-quarter {
-  flex-basis: 25%;
-  padding: 5rem 8rem;
+.info-links {
+  font-size: 20px;
   line-height: 3rem;
-  font-size: 24px;
-}
-
-.contact-info a {
   text-decoration: none;
   color: white;
 }
 
-.column-quarter > h3 {
-  font-weight: 400;
-  text-transform: uppercase;
-  font-size: 22px;
-  margin-bottom: 0.5rem;
+ul {
+  list-style-type: none;
+  color: white;
+  padding-left: 0;
 }
 
-.footer > a {
-  margin-right: 2rem;
-  font-family: Avenir, sans-serif;
+li > a {
   text-decoration: none;
-  color: #6e6e6e;
+  color: white;
+}
+
+.column-quarter-header {
+  text-transform: uppercase;
   font-size: 21px;
+  font-weight: 400;
+}
+
+footer {
+  margin: 3.5rem auto;
+  width: 1100px;
+}
+
+.privacy-contact {
+  text-decoration: none;
+  color: rgb(73 73 73);
+  font-weight: 600;
+  font-size: 17px;
+  margin-right: 2rem;
 }

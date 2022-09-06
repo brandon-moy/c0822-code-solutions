@@ -3,6 +3,9 @@ header {
   justify-content: space-between;
   align-items: center;
   padding-bottom: 1.75rem;
+}
+
+.full-border {
   border-bottom: 1px solid rgb(231 231 231);
 }
 
@@ -140,8 +143,11 @@ body {
   padding: 1rem 2.75rem;
 }
 
-.contact-info {
+.dark-grey-background {
   background-color: rgb(77 77 77);
+}
+
+.contact-info {
   width: 1300px;
   padding: 5.5rem;
   margin: auto;
