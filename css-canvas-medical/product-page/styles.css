@@ -1,39 +1,42 @@
 body {
   font-family: Avenir, sans-serif;
-  color: rgb(110 110 110);
+  color: rgb(68 68 68);
+  margin: 2rem auto;
 }
 
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 2rem;
-  margin: 2rem 0 8rem;
-  border-bottom: 1px double rgb(235 235 235);
+  padding-bottom: 1.75rem;
 }
 
-li > a {
-  text-decoration: none;
-  color: white;
+.full-border {
+  border-bottom: 1px solid rgb(231 231 231);
 }
 
-.nav-links > a {
-  color: gray;
+.nav-links {
   text-decoration: none;
-  font-family: Avenir, sans-serif;
-  font-size: 18px;
+  color: rgb(110 110 110);
+  font-size: 17px;
   margin-left: 2.75rem;
 }
 
-#contact-us {
-  padding: 0.75rem 1.25rem;
-  background: #0a4265;
-  margin-left: 1rem;
-  border-radius: 0.25rem;
+.contact-us {
+  text-decoration: none;
   color: white;
+  font-size: 17px;
+  background-color: #0a4265;
+  border-radius: 0.25rem;
+  padding: 0.75rem 1.25rem;
+  margin-left: 1.25rem;
 }
 
 .canvas-logo-blue {
+  width: 9.75rem;
+}
+
+.canvas-logo-white {
   width: 9.5rem;
 }
 
@@ -86,18 +89,6 @@ li > a {
   align-items: center;
 }
 
-.column-half {
-  flex-basis: 50%;
-}
-
-.column-quarter {
-  flex-basis: 25%;
-}
-
-img:not(.canvas-logo-blue) {
-  width: 100%;
-}
-
 .section-text-right {
   padding-left: 8.25rem;
 }
@@ -118,9 +109,18 @@ li > h3 {
   font-weight: 500;
 }
 
+.learn-more-half > p {
+  font-size: 17px;
+}
+
 .section-text > p:not(.section-quote) {
   font-family: Avenir, sans-serif;
   line-height: 1.5rem;
+}
+
+li > a {
+  text-decoration: none;
+  color: white;
 }
 
 .section-text > a {
@@ -138,17 +138,17 @@ li > h3 {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-top: 1px solid rgb(231 231 231);
+  padding-top: 1rem;
+  margin-top: 12rem;
+  margin-bottom: 1.25rem;
 }
 
-.learn-more-header {
+.learn-more-half > h3 {
   font-family: "Tiempos Headline", sans-serif;
+  font-size: 31px;
   font-weight: 400;
-  font-size: 32px;
-  color: rgb(95 95 95);
-}
-
-.learn-more-text {
-  font-size: 17px;
+  margin-bottom: 0.75rem;
 }
 
 .get-started-button {
@@ -156,32 +156,31 @@ li > h3 {
   color: white;
   background-color: #0a4265;
   font-size: 20px;
-  padding: 1rem 3rem;
   border-radius: 0.25rem;
+  padding: 1rem 2.75rem;
 }
 
-.location-information {
-  display: flex;
-  background-color: #525351;
-  padding-top: 7.5rem;
-  padding-left: 6.5rem;
-  height: 450px;
+.dark-grey-background {
+  background-color: rgb(77 77 77);
+}
+
+.contact-info {
   width: 1300px;
-  margin: 0 auto;
+  padding: 5.5rem;
+  margin: auto;
 }
 
-.grey-background {
-  margin: 0 auto;
-  background-color: rgb(206 206 206);
-}
-
-img.canvas-logo-white {
-  width: 29%;
-}
-
-ul {
-  list-style-type: none;
+.contact-box {
+  display: flex;
   color: white;
+}
+
+.column-half {
+  flex-basis: 50%;
+}
+
+.column-quarter {
+  flex-basis: 25%;
 }
 
 .address {
@@ -196,16 +195,27 @@ ul {
   line-height: 3rem;
 }
 
+ul {
+  list-style-type: none;
+  color: white;
+  padding-left: 0;
+}
+
+.column-quarter-header {
+  text-transform: uppercase;
+  font-size: 21px;
+  font-weight: 400;
+}
+
 footer {
-  margin: 4rem auto;
-  display: flex;
+  margin: 3.5rem auto;
   width: 1100px;
 }
 
 .privacy-contact {
-  margin-right: 2.25rem;
+  text-decoration: none;
+  color: rgb(73 73 73);
   font-weight: 600;
   font-size: 17px;
-  color: rgb(92 92 92);
-  text-decoration: none;
+  margin-right: 2rem;
 }
