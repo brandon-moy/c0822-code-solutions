@@ -1,18 +1,18 @@
 var $lightBulb = document.querySelector('.light-bulb');
 var $background = document.querySelector('.light');
-var light = 'on';
+var light = true;
 
 function flipSwitch(event) {
   var background = '';
   var lightBulb = '';
-  if (light === 'on') {
+  if (light === true) {
     background = 'dark';
     lightBulb = 'column-fifth lights-off';
-    light = 'off';
+    light = false;
   } else {
     background = 'light';
     lightBulb = 'column-fifth light-bulb';
-    light = 'on';
+    light = true;
   }
   $background.className = background;
   $lightBulb.className = lightBulb;
