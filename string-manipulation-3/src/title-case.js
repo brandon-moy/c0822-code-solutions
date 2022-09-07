@@ -15,8 +15,10 @@
 // if javascript - JavaScript
 // if api - API
 // if includes a '-' give indexOf '-' and capitalize at position 0 and index + 1
-// if minor word skip
-//
+// if length is less than 4 check if minor word
+// yes minor word add to output
+// no minor word capitalize first letter and add to output
+// if non then capitalize first letter and add to output
 
 function titleCase(title) {
   var output = '';
