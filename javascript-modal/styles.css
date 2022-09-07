@@ -1,0 +1,63 @@
+.body {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+}
+
+.open-button {
+  position: fixed;
+  margin: 1rem;
+  color: white;
+  background-color: blue;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.25rem;
+  font-size: 1.5rem;
+  border: 0 none;
+  box-shadow: 0 2px 5px black;
+}
+
+.screen-background {
+  background-color: black;
+  opacity: 0.75;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0 none;
+}
+
+.modal-background {
+  background-color: white;
+  width: 25rem;
+  height: 30vh;
+  border-radius: 0.25rem;
+  text-align: center;
+}
+
+.modal-header {
+  font-family: Arial, sans-serif;
+  font-weight: 800;
+  font-size: 1.25rem;
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.modal-button {
+  background-color: salmon;
+  padding: 0.5rem 2rem;
+  color: white;
+  font-size: 1.25rem;
+  border-radius: 0.25rem;
+  border: 0 none;
+  box-shadow: 0 2px 5px black;
+  margin-top: 2rem;
+}
+
+.screen {
+  position: fixed;
+}
+
+.header {
+  color: white;
+}
