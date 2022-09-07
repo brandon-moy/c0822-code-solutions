@@ -19,3 +19,6 @@ function isAnagram(firstString, secondString) {
   }
   return false;
 }
+
+// Take 2
+// take the strings
