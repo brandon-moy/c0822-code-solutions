@@ -22,6 +22,41 @@ function titleCase(title) {
   var output = '';
   var lowercase = title.toLowerCase();
   var lowercaseArray = lowercase.split(' ');
-  output = lowercaseArray[0].charAt(0).toUpperCase() + lowercaseArray[0].substring(1);
+  if (lowercaseArray[0] === 'javascript') {
+    output = 'JavaScript';
+  } else if (lowercaseArray[0] === 'javascript:') {
+    output = 'JavaScript:';
+  } else {
+    output = lowercaseArray[0].charAt(0).toUpperCase() + lowercaseArray[0].substring(1);
+  }
+  var minorWord = ['and', 'or', 'nor', 'but', 'a', 'an', 'the', 'as', 'at', 'by', 'for', 'in', 'of', 'on', 'per', 'to'];
+  for (var i = 1; i < lowercaseArray.length; i++) {
+    if (lowercaseArray[i] === 'javascript') {
+      output = output + ' ' + 'JavaScript';
+    } else if (lowercaseArray[i] === 'javascript:') {
+      output = output + ' ' + 'JavaScript:';
+    } else if (lowercaseArray[i] === 'api') {
+      output = output + ' ' + 'API';
+    } else if (lowercaseArray[i].includes('-')) {
+      var location = lowercaseArray[i].indexOf('-');
+      var beforeLocation = lowercaseArray[i].charAt(0).toUpperCase() + lowercaseArray[i].substring(1, location);
+      var afterLocation = lowercaseArray[i].charAt(location + 1).toUpperCase() + lowercaseArray[i].substring(location + 2);
+      var hyphenatedWord = beforeLocation + '-' + afterLocation;
+      output = output + ' ' + hyphenatedWord;
+    } else if (lowercaseArray[i - 1].charAt(lowercaseArray[i - 1].length - 1) === ':') {
+      var afterColon = lowercaseArray[i].charAt(0).toUpperCase() + lowercaseArray[i].substring(1);
+      output = output + ' ' + afterColon;
+    } else if (lowercaseArray[i].length < 4) {
+      if (minorWord.includes(lowercaseArray[i])) {
+        output = output + ' ' + lowercaseArray[i];
+      } else {
+        var shortCapital = lowercaseArray[i].charAt(0).toUpperCase() + lowercaseArray[i].substring(1);
+        output = output + ' ' + shortCapital;
+      }
+    } else {
+      var capitalize = lowercaseArray[i].charAt(0).toUpperCase() + lowercaseArray[i].substring(1);
+      output = output + ' ' + capitalize;
+    }
+  }
   return output;
 }
