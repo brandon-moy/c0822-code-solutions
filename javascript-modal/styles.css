@@ -30,7 +30,7 @@
 .modal-background {
   background-color: white;
   width: 25rem;
-  height: 30vh;
+  height: 20vh;
   border-radius: 0.25rem;
   text-align: center;
 }
@@ -51,13 +51,9 @@
   border-radius: 0.25rem;
   border: 0 none;
   box-shadow: 0 2px 5px black;
-  margin-top: 2rem;
+  margin-top: 1.5rem;
 }
 
-.screen {
-  position: fixed;
-}
-
-.header {
-  color: white;
+.hidden {
+  display: none;
 }

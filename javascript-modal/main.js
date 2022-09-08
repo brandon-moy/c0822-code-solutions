@@ -2,32 +2,17 @@
 // function needs to create modal
 // append modal to the body?
 
-var $openModal = document.querySelector('.open-modal');
-var $closeModal = document.querySelector('.button');
-var $screenBackground = document.querySelector('.screen');
-var $modalBackground = document.querySelector('.modal');
-var $modalHeader = document.querySelector('.header');
-var $modalButton = document.querySelector('.button');
+var $modal = document.querySelector('.hidden');
+var $openModal = document.querySelector('.open-button');
+var $closeModal = document.querySelector('.modal-button');
 
-function openModal(event) {
-  $modalHeader.textContent = 'Would you like to take a survey?';
-  $modalButton.textContent = 'NO';
-
-  $screenBackground.className = 'screen-background';
-  $modalBackground.className = 'modal-background';
-  $modalHeader.className = 'modal-header';
-  $modalButton.className = 'modal-button';
+function showModal(event) {
+  $modal.className = 'screen-background';
 }
 
-function closeModal(event) {
-  $modalHeader.textContent = '';
-  $modalButton.textContent = '';
-
-  $screenBackground.className = 'screen';
-  $modalBackground.className = 'modal';
-  $modalHeader.className = 'header';
-  $modalButton.className = 'button';
+function hideModal(event) {
+  $modal.className = 'screen-background hidden';
 }
 
-$openModal.addEventListener('click', openModal);
-$closeModal.addEventListener('click', closeModal);
+$openModal.addEventListener('click', showModal);
+$closeModal.addEventListener('click', hideModal);
