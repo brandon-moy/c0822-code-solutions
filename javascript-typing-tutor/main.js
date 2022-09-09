@@ -36,7 +36,16 @@ function closeModal(event) {
 }
 
 function resetTutor(event) {
-  location.reload();
+  typePosition = 0;
+  count = 0;
+  $modal.className = 'screen-background hidden';
+  for (var i = 0; i < $letter.length; i++) {
+    if (i === 0) {
+      $letter[i].className = 'underline';
+    } else {
+      $letter[i].className = '';
+    }
+  }
 }
 
 document.addEventListener('keydown', typingTester);
