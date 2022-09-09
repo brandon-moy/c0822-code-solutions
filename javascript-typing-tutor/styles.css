@@ -1,0 +1,86 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+}
+
+span {
+  white-space: pre;
+}
+
+.type-tutor {
+  position: fixed;
+  left: 30%;
+  top: 25%;
+}
+
+.underline {
+  border-bottom: 3px solid black;
+  padding-bottom: 5px;
+}
+
+.correct {
+  color: greenyellow;
+}
+
+.incorrect {
+  color: red;
+  border-bottom: 3px solid red;
+  padding-bottom: 5px;
+}
+
+.screen-background {
+  background-color: black;
+  opacity: 0.75;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0 none;
+}
+
+.modal-background {
+  background-color: white;
+  width: 30rem;
+  height: 40vh;
+  border-radius: 0.25rem;
+  text-align: center;
+}
+
+.modal-header {
+  font-weight: 800;
+  font-size: 2rem;
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.percentage {
+  color: black;
+}
+
+.modal-button {
+  padding: 0.5rem 2rem;
+  color: white;
+  font-size: 1.25rem;
+  border-radius: 0.25rem;
+  border: 0 none;
+  box-shadow: 0 2px 5px black;
+  margin: 0 1rem;
+}
+
+#yes {
+  background-color: cornflowerblue;
+}
+
+#no {
+  background-color: salmon;
+}
+
+.hidden {
+  display: none;
+}
