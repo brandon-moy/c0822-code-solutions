@@ -20,6 +20,27 @@
 // no minor word capitalize first letter and add to output
 // if non then capitalize first letter and add to output
 
+// Lets clean up?
+// take a string
+// create a new variable for the string
+// lowercase the string and put into new variable
+// make an array of minor words
+// split the string at spaces into arrays
+// go into the array at each position
+// check if the word ends with a :
+//
+// check if the word is javascript
+// if yes change to JavaScript
+// check if word is api
+// if yes change to API
+// check if the word is less than 4 letters
+// if yes check if it is a minor word
+// if yes again add the word
+// if no then capitalize first letter and check the other letters
+// if the letters contain a '-'
+// capitalize the following letter
+// add the remaining letters after the capital to the rest of the string
+
 function titleCase(title) {
   var output = '';
   var lowercase = title.toLowerCase();
@@ -67,83 +88,26 @@ function titleCase(title) {
           }
         }
       }
+    } else {
+      for (var o = 0; o < lowercaseArray[i].length; o++) {
+        if (o === 0) {
+          output = output + ' ' + lowercaseArray[i][o].toUpperCase();
+        } else if (lowercaseArray[i][o] === '-') {
+          output = output + lowercaseArray[i][o];
+          var start = (o + 1);
+          for (var p = start; p < lowercaseArray[i].length; p++) {
+            if (p === start) {
+              output = output + lowercaseArray[i][p].toUpperCase();
+            } else {
+              output = output + lowercaseArray[i][p];
+            }
+          }
+          break;
+        } else {
+          output = output + lowercaseArray[i][o];
+        }
+      }
     }
   }
   return output;
 }
-
-// } else {
-//   var shortCapital = lowercaseArray[i].charAt(0).toUpperCase() + lowercaseArray[i].substring(1);
-//   output = output + ' ' + shortCapital;
-
-// } else if (lowercaseArray[i].includes('-')) {
-//   var location = lowercaseArray[i].indexOf('-');
-//   var beforeLocation = lowercaseArray[i].charAt(0).toUpperCase() + lowercaseArray[i].substring(1, location);
-//   var afterLocation = lowercaseArray[i].charAt(location + 1).toUpperCase() + lowercaseArray[i].substring(location + 2);
-//   var hyphenatedWord = beforeLocation + '-' + afterLocation;
-//   output = output + ' ' + hyphenatedWord;
-// } else {
-//   var capitalize = lowercaseArray[i].charAt(0).toUpperCase() + lowercaseArray[i].substring(1);
-//   output = output + ' ' + capitalize;
-// }
-
-// Lets clean up?
-// take a string
-// create a new variable for the string
-// lowercase the string and put into new variable
-// make an array of minor words
-// split the string at spaces into arrays
-// go into the array at each position
-// check if the word ends with a :
-//
-// check if the word is javascript
-// if yes change to JavaScript
-// check if word is api
-// if yes change to API
-// check if the word is less than 4 letters
-// if yes check if it is a minor word
-// if yes again add the word
-//
-
-// function titleCase(title) {
-//   var output = '';
-//   var lowercase = title.toLowerCase();
-//   var lowercaseArray = lowercase.split(' ');
-//   if (lowercaseArray[0] === 'javascript') {
-//     output = 'JavaScript';
-//   } else if (lowercaseArray[0] === 'javascript:') {
-//     output = 'JavaScript:';
-//   } else {
-//     output = lowercaseArray[0].charAt(0).toUpperCase() + lowercaseArray[0].substring(1);
-//   }
-//   var minorWord = ['and', 'or', 'nor', 'but', 'a', 'an', 'the', 'as', 'at', 'by', 'for', 'in', 'of', 'on', 'per', 'to'];
-//   for (var i = 1; i < lowercaseArray.length; i++) {
-//     if (lowercaseArray[i] === 'javascript') {
-//       output = output + ' ' + 'JavaScript';
-//     } else if (lowercaseArray[i] === 'javascript:') {
-//       output = output + ' ' + 'JavaScript:';
-//     } else if (lowercaseArray[i] === 'api') {
-//       output = output + ' ' + 'API';
-//     } else if (lowercaseArray[i].includes('-')) {
-//       var location = lowercaseArray[i].indexOf('-');
-//       var beforeLocation = lowercaseArray[i].charAt(0).toUpperCase() + lowercaseArray[i].substring(1, location);
-//       var afterLocation = lowercaseArray[i].charAt(location + 1).toUpperCase() + lowercaseArray[i].substring(location + 2);
-//       var hyphenatedWord = beforeLocation + '-' + afterLocation;
-//       output = output + ' ' + hyphenatedWord;
-//     } else if (lowercaseArray[i - 1].charAt(lowercaseArray[i - 1].length - 1) === ':') {
-//       var afterColon = lowercaseArray[i].charAt(0).toUpperCase() + lowercaseArray[i].substring(1);
-//       output = output + ' ' + afterColon;
-//     } else if (lowercaseArray[i].length < 4) {
-//       if (minorWord.includes(lowercaseArray[i])) {
-//         output = output + ' ' + lowercaseArray[i];
-//       } else {
-//         var shortCapital = lowercaseArray[i].charAt(0).toUpperCase() + lowercaseArray[i].substring(1);
-//         output = output + ' ' + shortCapital;
-//       }
-//     } else {
-//       var capitalize = lowercaseArray[i].charAt(0).toUpperCase() + lowercaseArray[i].substring(1);
-//       output = output + ' ' + capitalize;
-//     }
-//   }
-//   return output;
-// }
