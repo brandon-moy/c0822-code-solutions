@@ -19,7 +19,11 @@ function reverseWords(string) {
     for (var j = start; j >= 0; j--) {
       newWord += word[j];
     }
-    output = output + ' ' + newWord;
+    if (i === 0) {
+      output = newWord;
+    } else {
+      output = output + ' ' + newWord;
+    }
   }
   return output;
 }
