@@ -21,5 +21,5 @@ function reverseWords(string) {
     }
     output = output + ' ' + newWord;
   }
-  return output.trim();
+  return output;
 }
