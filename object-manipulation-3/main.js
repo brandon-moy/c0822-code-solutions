@@ -36,23 +36,34 @@ function createDeck() {
   return deck;
 }
 
-function deal(deck) {
-  var cards = _.sampleSize(deck, 8);
-  for (var l = 0; l < cards.length; l++) {
-    if (l < 2) {
-      players[0].hand.push(cards[l]);
-    } else if (l < 4) {
-      players[1].hand.push(cards[l]);
-    } else if (l < 6) {
-      players[2].hand.push(cards[l]);
-    } else if (l < 8) {
-      players[3].hand.push(cards[l]);
-    }
+// function deal(deck) {
+//   var cards = _.sampleSize(deck, 8);
+//   for (var l = 0; l < cards.length; l++) {
+//     if (l < 2) {
+//       players[0].hand.push(cards[l]);
+//     } else if (l < 4) {
+//       players[1].hand.push(cards[l]);
+//     } else if (l < 6) {
+//       players[2].hand.push(cards[l]);
+//     } else if (l < 8) {
+//       players[3].hand.push(cards[l]);
+//     }
+//   }
+//   return cards;
+// }
+
+function deal(deck, amount) {
+  var cards = _.sampleSize(deck, amount);
+  var numberOfPlayers = players.length;
+  var cardsPerPlayer = amount / numberOfPlayers;
+  for (var l = 0; l < players.length; l++) {
+    var start = l * cardsPerPlayer;
+    var end = (l + 1) * cardsPerPlayer;
+    players[l].hand = _.slice(cards, start, end);
   }
-  return cards;
 }
 
-function checkWinner() {
+function checkWinner(players) {
   var currentWinner;
   var currentTotal = 0;
   for (var m = 0; m < players.length; m++) {
@@ -74,12 +85,12 @@ function checkWinner() {
   return currentWinner;
 }
 
-function testGame() {
+function testGame(players, amount) {
   var deck = createDeck();
   var shuffled = _.shuffle(deck);
-  var dealt = deal(shuffled);
-  var winner = checkWinner(dealt);
+  deal(shuffled, amount);
+  var winner = checkWinner(players);
   return winner;
 }
 
-console.log('Winner:', testGame());
+console.log('Winner:', testGame(players, 48));
