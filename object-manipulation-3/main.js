@@ -1,5 +1,41 @@
 console.log('Lodash is loaded:', typeof _ !== 'undefined');
 
+// 1) Create an array of players with name and hand
+// 2) Create a function to make a "deck" of cards
+//      make an array of suits
+//      make an array of number/values/ranks
+//      go through each array and pair them together
+//      return the deck
+// 3) Shufle the deck - use lodash
+// 4) Deal cards to players (2cards * 4 players = 8 cards)
+//      Get a group of cards
+//      Go through amount of cards and give 2 per player
+// 5) Get the winner
+//      create placeholder for current winner
+//      create placeholder for current winner's total
+//      go through the player list
+//        go through the player's hand
+//          create a player total
+//          if card is A - player total + 11
+//          if card is K, Q, or J - player total + 10
+//          otherwise add the value of the card
+//          check the player total vs current winners total
+//          if player total > current winners total then replace the value
+//          and the current winner with the current player
+//      return the winner
+
+// Redo 4 to be adjustable with number of players
+//    take the deck and the amount of cards to take for parameter
+//    get the number of players (from the length)
+//    get the number of cards needed per player
+//    go through the amount of cards dealt
+//      we need a start and end point
+//      start = position * number of cards?
+//      end = position + 1 * number of cards?
+//      remove cards from start until the end position
+//      add the cards to the players hand
+// need to reset the value of the players hand, this is create a subarray in the hand array
+
 var players = [
   {
     name: 'Yugi',
@@ -35,22 +71,6 @@ function createDeck() {
   }
   return deck;
 }
-
-// function deal(deck) {
-//   var cards = _.sampleSize(deck, 8);
-//   for (var l = 0; l < cards.length; l++) {
-//     if (l < 2) {
-//       players[0].hand.push(cards[l]);
-//     } else if (l < 4) {
-//       players[1].hand.push(cards[l]);
-//     } else if (l < 6) {
-//       players[2].hand.push(cards[l]);
-//     } else if (l < 8) {
-//       players[3].hand.push(cards[l]);
-//     }
-//   }
-//   return cards;
-// }
 
 function deal(deck, amount) {
   var cards = _.sampleSize(deck, amount);
