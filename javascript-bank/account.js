@@ -32,7 +32,7 @@ Account.prototype.getBalance = function () {
   for (var i = 0; i < this.transactions.length; i++) {
     if (this.transactions[i].type === 'deposit') {
       balance += this.transactions[i].amount;
-    } else {
+    } else if (this.transactions[i].type === 'withdrawal') {
       balance -= this.transactions[i].amount;
     }
   }
