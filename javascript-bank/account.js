@@ -28,6 +28,9 @@ Account.prototype.getBalance = function () {
   if (this.transactions.length === 0) {
     return 0;
   }
+  if (this.transactions === []) {
+    return this.balance;
+  }
   var balance = 0;
   for (var i = 0; i < this.transactions.length; i++) {
     if (this.transactions[i].type === 'deposit') {
