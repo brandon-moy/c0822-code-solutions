@@ -20,16 +20,14 @@ function left(event) {
     imgPosition = 4;
   }
   for (var j = 0; j < $images.length; j++) {
-    if (imgPosition === j) {
-      $images[j].className = '';
-      $icons[j].classList.remove('fa-regular');
-      $icons[j].classList.add('fa-solid');
-    } else {
-      $images[j].className = 'hidden';
-      $icons[j].classList.remove('fa-solid');
-      $icons[j].classList.add('fa-regular');
-    }
+    $images[j].className = 'hidden';
+    $icons[j].classList.remove('fa-solid');
+    $icons[j].classList.add('fa-regular');
   }
+  $images[imgPosition].className = '';
+  $icons[imgPosition].classList.remove('fa-regular');
+  $icons[imgPosition].classList.add('fa-solid');
+
   intervalID = setInterval(cycle, 3000);
 }
 
@@ -41,16 +39,14 @@ function right(event) {
     imgPosition = 0;
   }
   for (var k = 0; k < $images.length; k++) {
-    if (imgPosition - 1 === k) {
-      $images[k].className = '';
-      $icons[k].classList.remove('fa-regular');
-      $icons[k].classList.add('fa-solid');
-    } else {
-      $images[k].className = 'hidden';
-      $icons[k].classList.remove('fa-solid');
-      $icons[k].classList.add('fa-regular');
-    }
+    $images[k].className = 'hidden';
+    $icons[k].classList.remove('fa-solid');
+    $icons[k].classList.add('fa-regular');
   }
+  $images[imgPosition].className = '';
+  $icons[imgPosition].classList.remove('fa-regular');
+  $icons[imgPosition].classList.add('fa-solid');
+
   intervalID = setInterval(cycle, 3000);
 }
 
@@ -59,17 +55,14 @@ function cycle(event) {
   if (imgPosition === 5) {
     imgPosition = 0;
   }
-  for (var k = 0; k < $images.length; k++) {
-    if (imgPosition === k) {
-      $images[k].className = '';
-      $icons[k].classList.remove('fa-regular');
-      $icons[k].classList.add('fa-solid');
-    } else {
-      $images[k].className = 'hidden';
-      $icons[k].classList.remove('fa-solid');
-      $icons[k].classList.add('fa-regular');
-    }
+  for (var l = 0; l < $images.length; l++) {
+    $images[l].className = 'hidden';
+    $icons[l].classList.remove('fa-solid');
+    $icons[l].classList.add('fa-regular');
   }
+  $images[imgPosition].className = '';
+  $icons[imgPosition].classList.remove('fa-regular');
+  $icons[imgPosition].classList.add('fa-solid');
 }
 
 function button(event) {
