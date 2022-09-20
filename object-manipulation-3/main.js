@@ -36,11 +36,8 @@ function createDeck() {
   return deck;
 }
 
-var deck = createDeck();
-var shuffled = _.shuffle(deck);
-
-function deal() {
-  var cards = _.sampleSize(shuffled, 8);
+function deal(deck, amount) {
+  var cards = _.sampleSize(deck, 8);
   for (var l = 0; l < cards.length; l++) {
     if (l < 2) {
       players[0].hand.push(cards[l]);
@@ -56,18 +53,33 @@ function deal() {
 }
 
 function checkWinner() {
-  // for (var m = 0; m < players.length; m++) {
-  //   for (var n = 0; n < players[m].hand.length; n++) {
-  //     if (players[m].hand[n].rank === 'A') {
-
-  //     } else if (players[m].hand[n].rank === 'J' || players[m].hand[n].rank === 'Q' || players[m].hand[n].rank === 'K') {
-
-  //     } else {
-  //       players[m].hand[n].rank;
-  //     }
-  //   }
-  // }
+  var currentWinner;
+  var currentTotal = 0;
+  for (var m = 0; m < players.length; m++) {
+    for (var n = 0; n < players[m].hand.length; n++) {
+      var playerTotal = 0;
+      if (players[m].hand[n].rank === 'A') {
+        playerTotal += 11;
+      } else if (players[m].hand[n].rank === 'J' || players[m].hand[n].rank === 'Q' || players[m].hand[n].rank === 'K') {
+        playerTotal += 10;
+      } else {
+        playerTotal += players[m].hand[n].rank;
+      }
+      if (playerTotal > currentTotal) {
+        currentTotal = playerTotal;
+        currentWinner = players[m];
+      }
+    }
+  }
+  return currentWinner;
 }
 
-console.log(deal);
-console.log(checkWinner);
+function testGame() {
+  var deck = createDeck();
+  var shuffled = _.shuffle(deck);
+  var dealt = deal(shuffled);
+  var winner = checkWinner(dealt);
+  return winner;
+}
+
+console.log('Winner:', testGame());
