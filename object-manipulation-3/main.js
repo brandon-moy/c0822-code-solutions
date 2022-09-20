@@ -36,7 +36,7 @@ function createDeck() {
   return deck;
 }
 
-function deal(deck, amount) {
+function deal(deck) {
   var cards = _.sampleSize(deck, 8);
   for (var l = 0; l < cards.length; l++) {
     if (l < 2) {
