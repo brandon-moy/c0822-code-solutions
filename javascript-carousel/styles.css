@@ -1,0 +1,33 @@
+* {
+  box-sizing: border-box;
+}
+
+.hidden {
+  display: none;
+}
+
+.container {
+  width: 1000px;
+  margin: 0 auto;
+  border: 5px solid black;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.left-arrow {
+  font-size: 3em;
+  padding-right: 12rem;
+}
+
+.right-arrow {
+  font-size: 3em;
+  padding-left: 12rem;
+}
+
+.circle {
+  padding: 1.5rem;
+}
