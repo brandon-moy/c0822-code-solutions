@@ -1,0 +1,500 @@
+   69  git status
+   70  git commit -m "completed array-manipulation-2 challenge" 
+   71  git push origin array-manipulation-2
+   72  git switch main
+   73  git pull origin main
+   74  git branch object-manipulation-2
+   75  git switch object-manipulation-2
+   76  git status
+   77  git add object-manipulation-2
+   78  git status
+   79  git commit -m "object-manipulation-2 challenge -started"
+   80  git push origin object-manipulation-2
+   81  git switch main
+   82  git fetch
+   83  git pull origin main
+   84  git branch dom-querying
+   85  git switch dom-querying
+   86  git status
+   87  git add dom-querying
+   88  git status
+   89  git commit -m "Completed dom-querying exercise."
+   90  git push origin dom-querying
+   91  git switch main
+   92  git pull origin main
+   93  git switch string-manipulation-3
+   94  git status
+   95  git add string-manipulation-3
+   96  git status
+   97  git commit -m "passed isPalindromic, isAnagramic, and reverseWords, planning started for titleCase"
+   98  git push origin string-manipulation-3
+   99  git switch main
+  100  git pull origin main
+  101  git branch dom-events
+  102  git switch dom-events
+  103  git status
+  104  git add dom-events
+  105  git status
+  106  git commit -m "Completed dom-events exercise."
+  107  git push origin dom-events
+  108  git switch main
+  109  git switch string-manipulation-3
+  110  git switch main
+  111  git pull origin main
+  112  git switch css-canvas-medical
+  113  git status css-canvas-medical
+  114  git add css-canvas-medical
+  115  git status
+  116  git commit -m "changes made to index.html to start making all pages uniform"
+  117  git switch main
+  118  git pull origin main
+  119  git branch dom-manipulation
+  120  git switch dom-manipulation
+  121  git status
+  122  git add dom-manipulation
+  123  git status
+  124  git commit -m "completed dom-manipulation exercise."
+  125  git push origin dom-manipulation
+  126  git switch main
+  127  git pull origin main
+  128  git switch css-canvas-medical
+  129  git status
+  130  git add css-canvas-medical
+  131  git status
+  132  git commit -m "styling changes made to index to make more uniform look"
+  133  git push origin css-canvas-medical
+  134  git switch main
+  135  git push origin main
+  136  git branch javascript-light-bulb
+  137  git switch javascript-light-bulb
+  138  git status
+  139  git add javascript-light-bulb
+  140  git status
+  141  git commit -m "completed javascript-light-bulb challenge."
+  142  git push origin javascript-light-bulb
+  143  git add javascript-light-bulb
+  144  git status
+  145  git commit -m "added light variable for condition instead of using DOM state""
+  146  "
+  147  git push origin javascript-light-bulb
+  148  git switch css-canvas-medical
+  149  git status css-canvas-medical
+  150  git add css-canvas-medical
+  151  git commit -m "starting to restyle product page"
+  152  git push origin css-canvas-medical
+  153  git switch main
+  154  git pull origin main
+  155  git branch javascript-forms
+  156  git switch javascript-forms
+  157  git status
+  158  git add javascript-forms
+  159  git status
+  160  git commit -m "Completed javascript-forms exercise."
+  161  git push origin javascript-forms
+  162  git switch javascript-light-bulb
+  163  git status
+  164  git add javascript-light-bulb
+  165  git status
+  166  git commit -m "changed value of light to a boolean instead of string"
+  167  git push origin javascript-light-bulb
+  168  git switch javascript-forms
+  169  git switch main
+  170  git pull origin main
+  171  git switch string-manipulation-3
+  172  git status
+  173  git add string-manipulation-3
+  174  git commit -m "started planning/writing title-case function"
+  175  git status
+  176  git add string-manipulation-3
+  177  git commit -m "started planning/writing title-case function"
+  178  git add string-manipulation-3
+  179  git commit -m "started planning/writing title-case function"
+  180  git push origin string-manipulation-3
+  181  git switch main
+  182  git branch dom-creation
+  183  git switch dom-creation
+  184  git status
+  185  git add dom-creation
+  186  git status
+  187  git add dom-creation
+  188  git status
+  189  git commit -m "completed dom-creation exercise."
+  190  git push origin dom-creation
+  191  git switch string-manipulation-3
+  192  git add string-manipulation-3
+  193  git status
+  194  git commit -m "all tests passed, saving before looking into efficiency"
+  195  git push origin string-manipulation-3
+  196  git switch main
+  197  git add string-manipulation-3
+  198  git commit -m "plans added to titlecase and new plans started for isanagram"
+  199  git push origin string-manipulation-3
+  200  git switch main
+  201  git pull origin main
+  202  git switch string-manipulation-3
+  203  git pull origin string-manipulation-3
+  204  git add string-manipulation-3
+  205  git commit -m "started skeleton for isAnagram function variation" 
+  206  git push origin string-manipulation-3
+  207  git switch main
+  208  git branch css-media-queries
+  209  git switch css-media-queries
+  210  git status
+  211  git add css-media-queries
+  212  git status
+  213  git commit -m "completed css-media-queries exercise."
+  214  git push origin css-media-queries
+  215  git switch main
+  216  git pull origin main
+  217  git branch javascript-modal
+  218  git switch javascript-modal
+  219  git status
+  220  git add javascript-modal
+  221  git status
+  222  git commit -m "completed javascript-modal challenge"
+  223  git push origin javascript-modal
+  224  git switch main
+  225  git status
+  226  git add javascript-view-swapping
+  227  git status
+  228  git commit -completed javascript-view-swapping exercise."
+  229  Completed javascript-view-swapping exercise."
+  230  git status
+  231  git commit -m "completed javascript-view-swapping exercise."
+  232  git push origin javascript-view-swapping
+  233  git switch css-canvas-medical
+  234  git status
+  235  git add css-canvas-medical
+  236  git status
+  237  git commit -m "more uniform styling changes applied, slight adjustments to spacing and color, made logo into link to index"
+  238  git push origin css-canvas-medical
+  239  git switch main
+  240  git pull origin main
+  241  git switch css-canvas-medical
+  242  git status
+  243  git add css-canvas-medical
+  244  git commit -m "connected links at bottom of page"
+  245  git push origin css-canvas-medical
+  246  git switch main
+  247  git branch css-responsive-layout
+  248  git switch css-responsive-layout
+  249  git status
+  250  git add css-responsive-layout
+  251  git status
+  252  git commit -m "completed css-responsive-layout"
+  253  git push origin css-responsive-layout
+  254  git add css-responsive-layout
+  255  git commit -m "added for only media type screen"
+  256  git push origin css-responsive-layout
+  257  git switch main
+  258  git pull origin main
+  259  git branch javascript-typing-tutor
+  260  git switch javascript-typing-tutor
+  261  git status
+  262  git add javascript-typing-tutor
+  263  git status
+  264  git commit -m "completed javascript-typing-tutor challenge"
+  265  git push origin javascript-typing-tutor
+  266  git switch main
+  267  git branch javascript-and-json
+  268  git switch javascript-and-json
+  269  git status
+  270  git add javascript-and-json
+  271  git status
+  272  git commit -m "completed javascript-and-json exercise"
+  273  git push origin javascript-and-json
+  274  git switch main
+  275  git pull origin main
+  276  git branch javascript-local-storage
+  277  git switch javascript-local-storage
+  278  git status
+  279  git add javascript-local-storage
+  280  git status
+  281  git commit -m "completed javascript-local-storage exercise"
+  282  git push origin javascript-local-storage
+  283  git switch javascript-typing-tutor
+  284  git add javascript-typing-tutor
+  285  git commit -m "changed resetTutor function to reset variables/classes instead of refresh page"
+  286  git push origin javascript-typing-tutor
+  287  git switch javascript-local-storage
+  288  git add javascript-local-storage
+  289  git commit -m "moved beforeUnlaod function and eventListener to data.js file"
+  290  git push origin javascript-local-storage
+  291  git status
+  292  git add javascript-local-storage
+  293  git commit -m "added conditional for todos/previousTodosJSON"
+  294  git push origin javascript-local-storage
+  295  git switch origin main
+  296  git switch main
+  297  git branch array-manipulation-3
+  298  git switch array-manipulation-3
+  299  git switch main
+  300  git branch object-manipulation-3
+  301  git switch object-manipulation-3
+  302  git switch string-manipulation-3
+  303  git status
+  304  git add string-manipulation-3
+  305  git status
+  306  git commit -m "changed ispalindromic and isanagramic to run without methods"
+  307  git push origin string-manipulation-3
+  308  git switch main
+  309  git pull origin main
+  310  git switch string-manipulation-3
+  311  git status
+  312  git add string-manipulation-3
+  313  git status
+  314  git commit -m 
+  315  git commit -m "modified titlecase code to use less methods and loop through words to capitalize"
+  316  git push origin string-manipulation-3
+  317  git switch array-manipulation-3
+  318  git status
+  319  git add array-manipulation-3
+  320  git status
+  321  git commit -m "completed array-manipulation-3 challenge"
+  322  git push origin array-manipulation-3
+  323  git switch css-canvas-medical
+  324  git status
+  325  git add css-canvas-medical
+  326  git commit -m "started about-us page"
+  327  git push origin css-canvas-medical
+  328  git switch main
+  329  git switch string-manipulation-3
+  330  git status
+  331  git add string-manipulation-3
+  332  git status
+  333  git commit -m "Removed unnecessary method from reverse-words.js"
+  334  git push origin string-manipulation-3
+  335  git status
+  336  git add string-manipulation-3
+  337  git status
+  338  git commit -m "Added if statement so that the removed method was not needed"
+  339  git push origin string-manipulation-3
+  340  git switch array-manipulation-3
+  341  git status
+  342  git status
+  343  git status
+  344  git switch main
+  345  git branch javascript-custom-methods
+  346  git switch javascript-custom-methods
+  347  git status
+  348  git add javascript-custom-methods
+  349  git status
+  350  git commit -m "Completed javascript-custom-methods exercise."
+  351  git push origin javascript-custom-methods
+  352  git switch main
+  353  git pull origin main
+  354  git pull origin main 
+  355  git branch javascript-this
+  356  git switch javascript-this
+  357  git add javascript-this
+  358  git status
+  359  git commit -m "Completed javascript-this exercise."
+  360  git push origin javascript-this
+  361  git switch main
+  362  git pull origin main
+  363  git branch
+  364  git branch javascript-prototypes
+  365  git switch javascript-prototypes
+  366  git add javascript-prototypes
+  367  git status
+  368  git commit -m "Completed javascript-prototypes exercise."
+  369  git push origin javascript-prototypes
+  370  git switch array-manipulation-3
+  371  git status
+  372  git add array-manipulation-3
+  373  git status
+  374  git commit -m "Removed unnecessary part of condition in flatten.js"
+  375  git push origin array-manipulation-3
+  376  git switch main
+  377  git pull origin main
+  378  git branch javascript-constructors
+  379  git switch javascript-constructors
+  380  git add javascript-constructors
+  381  git status
+  382  git commit -m "Completed javascript-constructors exercise."
+  383  git push origin javascript-constructors
+  384  git switch main
+  385  git pull origin main
+  386  git branch javascript-bank
+  387  git switch javascript-bank
+  388  git status
+  389  git add javascript-bank
+  390  git status
+  391  git commit -m "Completed transaction.js and started account.js test for prototype deposit"
+  392  git push origin javascript-bank
+  393  git switch main
+  394  git pull origin main
+  395  git fetch
+  396  git branch javascript-timers
+  397  git switch javascript-timers
+  398  git add javascript-timers
+  399  git status
+  400  git commit -m "Completed javascript-timers exercise."
+  401  git push origin javascript-timers
+  402  git switch main
+  403  git pull origin main
+  404  git switch javascript-bank
+  405  git pull origin javascript-bank
+  406  git status
+  407  git status
+  408  git add javascript-bank
+  409  git commit -m "Working on TypeError bank.accounts[0].getBalance is not a function"
+  410  git push origin javascript-bank
+  411  git switch main
+  412  git switch javascript-bank
+  413  git status
+  414  git add javascript-bank
+  415  git status
+  416  git commit -m "Completed bank.js function and passed tests" 
+  417  git push origin javascript-bank
+  418  git switch main
+  419  git pull origin main
+  420  git branch javascript-carousel
+  421  git switch javascript-carousel
+  422  git status
+  423  git add javascript-carousel
+  424  git commit -m "Completed javascript-carousel challenge."
+  425  git push origin javascript-carousel
+  426  git switch object-manipulation-3
+  427  git status
+  428  git add object-manipulation-3
+  429  git commit -m "Created function to create deck and deal cards"
+  430  git add object-manipulation-3
+  431  git commit -m "Created function to create deck and deal cards"
+  432  git push origin object-manipulation-3
+  433  git switch javascript-carousel
+  434  git status
+  435  git add javascript-carousel
+  436  git status
+  437  git commit -m "Adjustments made to code, loop everything hidden and use imgPosition to change visible content"
+  438  got push origin javascript-carousel
+  439  git push origin javascript-carousel
+  440  git switch object-manipulation-3
+  441  git status
+  442  git status
+  443  git add object-manipulation-3
+  444  git commit -m "Created function to check total rank of player hands and return the player with the highest rank"
+  445  git status
+  446  git add object-manipulation-3
+  447  git commit -m "Removed amount parameter from card dealing function for time being"
+  448  git push origin object-manipulation-3
+  449  git status
+  450  git status
+  451  git add object-manipulation-3
+  452  git commit -m "Rewrote deal function to be able to work with adjustable number of players and cards per hand"
+  453  git push origin object-manipulation-3
+  454  git status
+  455  git status
+  456  git add object-manipulation-3
+  457  git commit -m "Added pseudo code from notebook to code"
+  458  git push origin object-manipulation-3
+  459  git status
+  460  git status
+  461  git switch main
+  462  git pull origin main
+  463  git branch practice-interview-problme-challenge
+  464  git switch practice-interview-problme-challenge
+  465  git switch main
+  466  git branch -D practice-interview-problme-challenge
+  467  git pull origin main
+  468  git branch es6-const-let
+  469  git switch es6-const-let
+  470  git add es6-const-let
+  471  git status
+  472  git commit -m "Completed es6-const-let exercise."
+  473  git push origin es6-const-let
+  474  git switch main
+  475  git pull origin main
+  476  git branch es6-template-literals
+  477  git switch es6-template-literals
+  478  git status
+  479  git add es6-template-literals
+  480  git commit -m "Completed es6-template-literals exercise."
+  481  git push origin es6-template-literals
+  482  git switch main
+  483  git pull origin main
+  484  git branch es6-destructuring
+  485  git switch es6-destructuring
+  486  git status
+  487  git add es6-destructuring
+  488  git status
+  489  git commit -m "Completed es6-destructuring exercise."
+  490  git push origin es6-destructuring
+  491  git switch main
+  492  git  branch es6-arrow-functions
+  493  git switch es6-arrow-functions
+  494  git status
+  495  git add es6-arrow-functions
+  496  git commit -m "Completed es6-arrow-functions exercise."
+  497  git push origin es6-arrow-functions
+  498  git switch main
+  499  git pull origin main
+  500  git pull origin main
+  501  git branch command-line-basics
+  502  git switch command-line-basics
+  503  cd command-line-basics
+  504  man man
+  505  man cat
+  506  cat laziness.txt
+  507  cat impatience.txt
+  508  cat hubris.txt
+  509  cat laziness.txt impatience.txt hubris.txt
+  510  cat laziness.txt impatience.txt hubris.txt > three-virtues.txt
+  511  cat three-virtues.txt
+  512  man ls
+  513  ls command-line-basics
+  514  man ls
+  515  ls
+  516  ls -a
+  517  ls -f
+  518  ls lfz-staff
+  519  ls -a lfz-staff
+  520  ls -f lfz-staff
+  521  ls -F lfz-staff
+  522  ls -aF lfz-staff > lfz-staff/contents.txt
+  523  cat lfz-staff/contents.txt
+  524  man pwd
+  525  pwd
+  526  pwd > i-was-here.txt
+  527  ls
+  528  cat i-was-here.txt
+  529  man echo
+  530  echo 'Hello, World!'
+  531  echo 'Hello, World!' > hello.txt
+  532  ls
+  533  cat hello.txt
+  534  man touch
+  535  touch tag-youre-it.txt
+  536  touch snoot/boop.txt
+  537  ls snoot
+  538  man mkdir
+  539  mkdir parent
+  540  ls parent/
+  541  ls parent
+  542  mkdir -p parent/child/grandchild
+  543  touch parent/child/grandchild/.gitkeep
+  544  ls -a parent
+  545  ls -a
+  546  ls -a parent/child/grandchild
+  547  man mv
+  548  man mv
+  549  mv pikiemans pokemon
+  550  mv pokiemans pokemon
+  551  ls
+  552  ls pokemon
+  553  man rm
+  554  rm lol.txt
+  555  ls
+  556  ls lol.txt
+  557  rm -r kill-me/
+  558  ls
+  559  ls kill-me
+  560  man cp
+  561  man cp
+  562  cp and-then.txt no-and-then.txt
+  563  ls
+  564  cat an-then.txt no-and-then.txt
+  565  cat and-then.txt no-and-then.txt
+  566  man history
+  567  history
+  568  history > command-history.txt
