@@ -7,10 +7,10 @@ if (option === 'read') {
   displayEntries();
 } else if (option === 'create') {
   createEntry(process.argv[3]);
+} else if (option === 'update') {
+  updateEntry(process.argv[3], process.argv[4]);
 }
-//  else if (option === 'update') {
-//   updateEntry(process.argv[3], process.argv[4]);
-// } else if (option === 'delete') {
+//  else if (option === 'delete') {
 //   deleteEntry(process.argv[3], process.argv[4]);
 // }
 
@@ -31,5 +31,15 @@ function createEntry(string) {
       process.exit(1);
     }
   });
-  console.log(data);
+}
+
+function updateEntry(position, string) {
+  data.notes[position] = string;
+  const update = JSON.stringify(data, null, 2);
+  fs.writeFile('./data.json', update, err => {
+    if (err) {
+      console.error(err);
+      process.exit(1);
+    }
+  });
 }
