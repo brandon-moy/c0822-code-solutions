@@ -14,5 +14,3 @@ function read(position) {
 }
 
 read(position);
-
-console.log(length);
