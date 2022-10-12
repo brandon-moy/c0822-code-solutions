@@ -1,13 +1,13 @@
-var a = Number(process.argv[2]);
-var b = Number(process.argv[4]);
-var keyword = process.argv[3];
+const a = Number(process.argv[2]);
+const b = Number(process.argv[4]);
+const keyword = process.argv[3];
 
 const add = require('./add');
 const subtract = require('./subtract');
 const multiply = require('./multiply');
 const divide = require('./divide');
 
-var output;
+let output;
 
 if (keyword === 'plus') {
   output = add(a, b);
