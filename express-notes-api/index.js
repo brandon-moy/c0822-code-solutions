@@ -6,7 +6,7 @@ const app = express();
 
 app.use(express.json());
 
-app.get('/api/notes/:id', (req, res) => {
+const idCheck = (req, res) => {
   if (req.params.id < 0) {
     res.status(400);
     res.json({
@@ -17,11 +17,15 @@ app.get('/api/notes/:id', (req, res) => {
     res.json({
       error: `cannot find note with id ${req.params.id}`
     });
-  } else {
-    res.status(200);
-    res.json(data.notes[req.params.id]);
   }
-});
+};
+
+app.get('/api/notes/:id', (req, res) => {
+  idCheck(req, res);
+  res.status(200);
+  res.json(data.notes[req.params.id]);
+}
+);
 
 app.get('/api/notes', (req, res) => {
   const notesArray = [];
@@ -60,48 +64,28 @@ app.post('/api/notes', (req, res) => {
 });
 
 app.delete('/api/notes/:id', (req, res) => {
-  const id = req.params.id;
-  if (id < 0) {
-    res.status(400);
-    res.json({
-      error: 'id must be a positive integer'
-    });
-  } else if (data.notes[id] === undefined) {
-    res.status(404);
-    res.json({
-      error: `cannot find note with id ${id}`
-    });
-  } else {
-    delete data.notes[id];
-    const deleteJSON = JSON.stringify(data, null, 2);
-    fs.writeFile('./data.json', deleteJSON, err => {
-      if (err) {
-        console.error(err);
-        res.status(500);
-        res.json({
-          error: 'an unexpected error occured.'
-        });
-      } else {
-        res.status(204);
-        res.send();
-      }
-    });
-  }
-});
+  idCheck(req, res);
+  delete data.notes[req.params.id];
+  const deleteJSON = JSON.stringify(data, null, 2);
+  fs.writeFile('./data.json', deleteJSON, err => {
+    if (err) {
+      console.error(err);
+      res.status(500);
+      res.json({
+        error: 'an unexpected error occured.'
+      });
+    } else {
+      res.status(204);
+      res.send();
+    }
+  });
+}
+);
 
 app.put('/api/notes/:id', (req, res) => {
   const id = req.params.id;
-  if (id < 0) {
-    res.status(400);
-    res.json({
-      error: 'id must be a positive integer'
-    });
-  } else if (data.notes[id] === undefined) {
-    res.status(404);
-    res.json({
-      error: `cannot find note with id ${id}`
-    });
-  } else if (req.body === undefined) {
+  idCheck(req, res);
+  if (req.body === undefined) {
     res.status(400);
     res.json({
       error: 'content is a required field'
