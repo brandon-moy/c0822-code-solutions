@@ -79,7 +79,7 @@ app.delete('/api/notes/:id', (req, res) => {
 app.put('/api/notes/:id', (req, res) => {
   const id = req.params.id;
   idCheck(req, res);
-  if (req.body === undefined) {
+  if (req.body.content === undefined) {
     res.status(400);
     res.json({
       error: 'content is a required field'
