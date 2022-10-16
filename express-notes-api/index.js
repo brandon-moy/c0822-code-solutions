@@ -12,14 +12,9 @@ const idCheck = id => {
   return null;
 };
 
-const updateDataJSON = data => {
+const updateDataJSON = (data, callback) => {
   const updatedJSON = JSON.stringify(data, null, 2);
-  fs.writeFile('./data.json', updatedJSON, err => {
-    if (err) {
-      console.error(err);
-      return 'error';
-    }
-  });
+  fs.writeFile('./data.json', updatedJSON, callback);
 };
 
 app.get('/api/notes/:id', (req, res) => {
@@ -45,6 +40,7 @@ app.get('/api/notes', (req, res) => {
   for (const id in data.notes) {
     notesArray.push(data.notes[id]);
   }
+  res.status(200);
   res.json(notesArray);
 });
 
@@ -60,15 +56,18 @@ app.post('/api/notes', (req, res) => {
     note.id = id;
     data.notes[id] = note;
     data.nextId++;
-    const checkError = updateDataJSON(data);
-    if (checkError === 'error') {
-      res.status(500);
-      res.json({
-        error: 'an unexpected error occured.'
-      });
-    } else {
-      res.json(note);
-    }
+    updateDataJSON(data, err => {
+      if (err) {
+        console.error(err);
+        res.status(500);
+        res.json({
+          error: 'an unexpected error occured.'
+        });
+      } else {
+        res.status(201);
+        res.json(note);
+      }
+    });
   }
 });
 
@@ -86,21 +85,24 @@ app.delete('/api/notes/:id', (req, res) => {
     });
   } else {
     delete data.notes[req.params.id];
-    const checkError = updateDataJSON(data);
-    if (checkError === 'error') {
-      res.status(500);
-      res.json({
-        error: 'an unexpected error occured.'
-      });
-    } else {
-      res.send();
-    }
+    updateDataJSON(data, err => {
+      if (err) {
+        console.error(err);
+        res.status(500);
+        res.json({
+          error: 'an unexpected error occured.'
+        });
+      } else {
+        res.status(204);
+        res.send();
+      }
+    });
   }
 });
 
 app.put('/api/notes/:id', (req, res) => {
   const id = req.params.id;
-  const idValid = idCheck(req.params.id);
+  const idValid = idCheck(id);
   if (idValid === 'not found') {
     res.status(404);
     res.json({
@@ -119,15 +121,18 @@ app.put('/api/notes/:id', (req, res) => {
       });
     } else {
       data.notes[id].content = req.body.content;
-      const checkError = updateDataJSON(data);
-      if (checkError === 'error') {
-        res.status(500);
-        res.json({
-          error: 'an unexpected error occured.'
-        });
-      } else {
-        res.send();
-      }
+      updateDataJSON(data, err => {
+        if (err) {
+          console.error(err);
+          res.status(500);
+          res.json({
+            error: 'an unexpected error occured.'
+          });
+        } else {
+          res.status(200);
+          res.json(data.notes[id]);
+        }
+      });
     }
   }
 });
