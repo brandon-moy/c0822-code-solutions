@@ -6,44 +6,38 @@ const app = express();
 
 app.use(express.json());
 
-const idCheck = (req, res) => {
-  if (req.params.id < 0) {
-    res.status(400);
-    res.json({
-      error: 'id must be a positive integer'
-    });
-  } else if (data.notes[req.params.id] === undefined) {
-    res.status(404);
-    res.json({
-      error: `cannot find note with id ${req.params.id}`
-    });
-  }
+const idCheck = id => {
+  if (!Number.isInteger(Number(id)) || Number(id) < 0) return 'invalid';
+  if (!(id in data.notes)) return 'not found';
+  return null;
 };
 
-const updateDataJSON = (res, type, note) => {
+const updateDataJSON = data => {
   const updatedJSON = JSON.stringify(data, null, 2);
   fs.writeFile('./data.json', updatedJSON, err => {
     if (err) {
       console.error(err);
-      res.status(500);
-      res.json({
-        error: 'an unexpected error occured.'
-      });
-    } else {
-      res.status(201);
-      if (type === 'post') {
-        res.json(note);
-      } else {
-        res.send();
-      }
+      return 'error';
     }
   });
 };
 
 app.get('/api/notes/:id', (req, res) => {
-  idCheck(req, res);
-  res.status(200);
-  res.json(data.notes[req.params.id]);
+  const idValid = idCheck(req.params.id);
+  if (idValid === 'not found') {
+    res.status(404);
+    res.json({
+      error: `cannot find note with id ${req.params.id}`
+    });
+  } else if (idValid === 'invalid') {
+    res.status(400);
+    res.json({
+      error: 'id must be a positive integer'
+    });
+  } else {
+    res.status(200);
+    res.json(data.notes[req.params.id]);
+  }
 });
 
 app.get('/api/notes', (req, res) => {
@@ -66,27 +60,75 @@ app.post('/api/notes', (req, res) => {
     note.id = id;
     data.notes[id] = note;
     data.nextId++;
-    updateDataJSON(res, 'post', note);
+    const checkError = updateDataJSON(data);
+    if (checkError === 'error') {
+      res.status(500);
+      res.json({
+        error: 'an unexpected error occured.'
+      });
+    } else {
+      res.json(note);
+    }
   }
 });
 
 app.delete('/api/notes/:id', (req, res) => {
-  idCheck(req, res);
-  delete data.notes[req.params.id];
-  updateDataJSON(res, 'delete');
+  const idValid = idCheck(req.params.id);
+  if (idValid === 'not found') {
+    res.status(404);
+    res.json({
+      error: `cannot find note with id ${req.params.id}`
+    });
+  } else if (idValid === 'invalid') {
+    res.status(400);
+    res.json({
+      error: 'id must be a positive integer'
+    });
+  } else {
+    delete data.notes[req.params.id];
+    const checkError = updateDataJSON(data);
+    if (checkError === 'error') {
+      res.status(500);
+      res.json({
+        error: 'an unexpected error occured.'
+      });
+    } else {
+      res.send();
+    }
+  }
 });
 
 app.put('/api/notes/:id', (req, res) => {
   const id = req.params.id;
-  idCheck(req, res);
-  if (req.body.content === undefined) {
+  const idValid = idCheck(req.params.id);
+  if (idValid === 'not found') {
+    res.status(404);
+    res.json({
+      error: `cannot find note with id ${req.params.id}`
+    });
+  } else if (idValid === 'invalid') {
     res.status(400);
     res.json({
-      error: 'content is a required field'
+      error: 'id must be a positive integer'
     });
   } else {
-    data.notes[id].content = req.body.content;
-    updateDataJSON(res, 'put');
+    if (req.body.content === undefined) {
+      res.status(400);
+      res.json({
+        error: 'content is a required field'
+      });
+    } else {
+      data.notes[id].content = req.body.content;
+      const checkError = updateDataJSON(data);
+      if (checkError === 'error') {
+        res.status(500);
+        res.json({
+          error: 'an unexpected error occured.'
+        });
+      } else {
+        res.send();
+      }
+    }
   }
 });
 
