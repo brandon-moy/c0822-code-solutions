@@ -20,12 +20,31 @@ const idCheck = (req, res) => {
   }
 };
 
+const updateDataJSON = (res, type, note) => {
+  const updatedJSON = JSON.stringify(data, null, 2);
+  fs.writeFile('./data.json', updatedJSON, err => {
+    if (err) {
+      console.error(err);
+      res.status(500);
+      res.json({
+        error: 'an unexpected error occured.'
+      });
+    } else {
+      res.status(201);
+      if (type === 'post') {
+        res.json(note);
+      } else {
+        res.send();
+      }
+    }
+  });
+};
+
 app.get('/api/notes/:id', (req, res) => {
   idCheck(req, res);
   res.status(200);
   res.json(data.notes[req.params.id]);
-}
-);
+});
 
 app.get('/api/notes', (req, res) => {
   const notesArray = [];
@@ -47,40 +66,15 @@ app.post('/api/notes', (req, res) => {
     note.id = id;
     data.notes[id] = note;
     data.nextId++;
-    const noteJSON = JSON.stringify(data, null, 2);
-    fs.writeFile('./data.json', noteJSON, err => {
-      if (err) {
-        console.error(err);
-        res.status(500);
-        res.json({
-          error: 'an unexpected error occured.'
-        });
-      } else {
-        res.status(201);
-        res.json(note);
-      }
-    });
+    updateDataJSON(res, 'post', note);
   }
 });
 
 app.delete('/api/notes/:id', (req, res) => {
   idCheck(req, res);
   delete data.notes[req.params.id];
-  const deleteJSON = JSON.stringify(data, null, 2);
-  fs.writeFile('./data.json', deleteJSON, err => {
-    if (err) {
-      console.error(err);
-      res.status(500);
-      res.json({
-        error: 'an unexpected error occured.'
-      });
-    } else {
-      res.status(204);
-      res.send();
-    }
-  });
-}
-);
+  updateDataJSON(res, 'delete');
+});
 
 app.put('/api/notes/:id', (req, res) => {
   const id = req.params.id;
@@ -92,19 +86,7 @@ app.put('/api/notes/:id', (req, res) => {
     });
   } else {
     data.notes[id].content = req.body.content;
-    const updateJSON = JSON.stringify(data, null, 2);
-    fs.writeFile('./data.json', updateJSON, err => {
-      if (err) {
-        console.error(err);
-        res.status(500);
-        res.json({
-          error: 'an unexpected error occured.'
-        });
-      } else {
-        res.status(204);
-        res.send();
-      }
-    });
+    updateDataJSON(res, 'put');
   }
 });
 
