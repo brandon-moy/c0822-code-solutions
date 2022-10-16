@@ -59,6 +59,36 @@ app.post('/api/notes', (req, res) => {
   }
 });
 
+app.delete('/api/notes/:id', (req, res) => {
+  const id = req.params.id;
+  if (id < 0) {
+    res.status(400);
+    res.json({
+      error: 'id must be a positive integer'
+    });
+  } else if (data.notes[id] === undefined) {
+    res.status(404);
+    res.json({
+      error: `cannot find note with id ${id}`
+    });
+  } else {
+    delete data.notes[id];
+    const deleteJSON = JSON.stringify(data, null, 2);
+    fs.writeFile('./data.json', deleteJSON, err => {
+      if (err) {
+        console.error(err);
+        res.status(500);
+        res.json({
+          error: 'an unexpected error occured.'
+        });
+      } else {
+        res.status(204);
+        res.send();
+      }
+    });
+  }
+});
+
 app.listen(3000, () => {
   // eslint-disable-next-line no-console
   console.log('Listening on port 3000!');
