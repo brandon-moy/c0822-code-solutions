@@ -1,5 +1,4 @@
-select "fg". *,
-       "f". "releaseYear",
+select "f". "releaseYear",
        "g". "name" as "genre"
   from "filmGenre" as "fg"
   join "genres" as "g" using ("genreId")
