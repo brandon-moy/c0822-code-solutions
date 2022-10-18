@@ -1,4 +1,4 @@
-select "p". *,
+select "p". "amount",
        "c". "firstName",
        "c". "lastName"
   from "payments" as "p"
