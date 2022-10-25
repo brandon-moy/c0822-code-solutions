@@ -1,0 +1,33 @@
+button {
+  color: white;
+  padding: 0.5rem 1rem;
+  border: solid 4px black;
+  box-shadow: 2.5px 2.5px black;
+}
+
+.frozen {
+  background-color: rgb(53 28 117);
+}
+
+.cold {
+  background-color: rgb(103 78 167);
+}
+
+.tepid {
+  background-color: rgb(224 102 102);
+}
+
+.warm {
+  background-color: rgb(246 178 107);
+  color: black;
+}
+
+.hot {
+  background-color: rgb(255 255 0);
+  color: black;
+}
+
+.nuclear {
+  background-color: white;
+  color: black;
+}
