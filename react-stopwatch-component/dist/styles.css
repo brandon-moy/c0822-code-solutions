@@ -1,0 +1,26 @@
+.flex {
+  display: flex;
+}
+
+.center {
+  justify-content: center;
+  align-items: center;
+}
+
+.circle {
+  width: 10rem;
+  aspect-ratio: 1 / 1;
+  border: 2px solid black;
+  border-radius: 100%;
+}
+
+.time {
+  font-size: 3rem;
+}
+
+#icon {
+  text-align: center;
+  width: 10rem;
+  padding-top: 1rem;
+  font-size: 1.75rem;
+}
