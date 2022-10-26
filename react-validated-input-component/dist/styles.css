@@ -1,0 +1,18 @@
+.fa-solid {
+  padding-left: 0.5rem;
+}
+
+.fa-x {
+  color: red;
+}
+
+.fa-check {
+  color: green;
+}
+
+.message {
+  color: red;
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  font-family: Arial, Helvetica, sans-serif;
+}
