@@ -13,29 +13,26 @@ export default class Carousel extends React.Component {
 
   moveRight() {
     clearInterval(this.state.intervalId);
-    this.setState({ intervalId: null });
     const newLocation = this.state.location === 4
       ? 0
       : this.state.location + 1;
-    this.setState({ location: newLocation });
+    this.setState({ location: newLocation, intervalId: null });
     this.carouselCycle();
   }
 
   moveLeft() {
     clearInterval(this.state.intervalId);
-    this.setState({ intervalId: null });
     const newLocation = !this.state.location
       ? 4
       : this.state.location - 1;
-    this.setState({ location: newLocation });
+    this.setState({ location: newLocation, intervalId: null });
     this.carouselCycle();
   }
 
   handleButtonClick(event) {
     if (event.target.tagName !== 'I') return;
     clearInterval(this.state.intervalId);
-    this.setState({ intervalId: null });
-    this.setState({ location: Number(event.target.id) });
+    this.setState({ location: Number(event.target.id), intervalId: null });
     this.carouselCycle();
   }
 
@@ -57,7 +54,7 @@ export default class Carousel extends React.Component {
         ? 'fa-solid'
         : 'fa-regular';
       return (
-        <i className={`circle ${circleFill} fa-circle`} key={image.place}></i>
+        <i id={image.place} className={`circle ${circleFill} fa-circle`} key={image.place}></i>
       );
     });
     return (
