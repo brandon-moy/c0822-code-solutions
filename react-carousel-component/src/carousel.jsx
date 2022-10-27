@@ -3,28 +3,31 @@ import React from 'react';
 export default class Carousel extends React.Component {
   constructor(props) {
     super(props);
-    this.handleArrowClick = this.handleArrowClick.bind(this);
     this.handleButtonClick = this.handleButtonClick.bind(this);
     this.carouselCycle = this.carouselCycle.bind(this);
+    this.makeIcons = this.makeIcons.bind(this);
+    this.moveRight = this.moveRight.bind(this);
+    this.moveLeft = this.moveLeft.bind(this);
     this.state = { location: 0, intervalId: null };
   }
 
-  handleArrowClick(event) {
+  moveRight() {
     clearInterval(this.state.intervalId);
     this.setState({ intervalId: null });
-    if (event.target.id === 'right') {
-      if (this.state.location === 4) {
-        this.setState({ location: 0 });
-      } else {
-        this.setState({ location: this.state.location + 1 });
-      }
-    } else {
-      if (!this.state.location) {
-        this.setState({ location: 4 });
-      } else {
-        this.setState({ location: this.state.location - 1 });
-      }
-    }
+    const newLocation = this.state.location === 4
+      ? 0
+      : this.state.location + 1;
+    this.setState({ location: newLocation });
+    this.carouselCycle();
+  }
+
+  moveLeft() {
+    clearInterval(this.state.intervalId);
+    this.setState({ intervalId: null });
+    const newLocation = !this.state.location
+      ? 4
+      : this.state.location - 1;
+    this.setState({ location: newLocation });
     this.carouselCycle();
   }
 
@@ -32,53 +35,51 @@ export default class Carousel extends React.Component {
     if (event.target.tagName !== 'I') return;
     clearInterval(this.state.intervalId);
     this.setState({ intervalId: null });
-
     this.setState({ location: Number(event.target.id) });
-
-    event.target.classList.add('fa-solid');
-
-    const $icons = document.querySelectorAll('.circle');
-    for (let i = 0; i < $icons.length; i++) {
-      if ($icons[i].id !== event.target.id) {
-        $icons[i].classList.remove('fa-solid');
-      }
-    }
     this.carouselCycle();
   }
 
   carouselCycle() {
     const intervalId = setInterval(() => {
-      const place = this.state.location + 1;
-      if (place === 5) {
-        this.setState({ location: 0 });
-      } else {
-        this.setState({ location: this.state.location + 1 });
-      }
+      const place = this.state.location === 4
+        ? 0
+        : this.state.location + 1;
+      this.setState({ location: place });
     }, 3000);
 
     this.setState({ intervalId });
   }
 
+  makeIcons(props) {
+    const list = this.props.images;
+    const iconList = list.map(image => {
+      const circleFill = this.state.location === image.place
+        ? 'fa-solid'
+        : 'fa-regular';
+      return (
+        <i className={`circle ${circleFill} fa-circle`} key={image.place}></i>
+      );
+    });
+    return (
+      <div className="icons" onClick={this.handleButtonClick}>{iconList}</div>
+    );
+  }
+
   render() {
-    const carouselImage = this.props.images[this.state.location];
+    const carouselImage = this.props.images[this.state.location].src;
+    const MakeIcons = this.makeIcons;
     return (
       <div className="container row">
         <div>
-          <i id="left" className="fa-solid fa-chevron-left arrow" onClick={this.handleArrowClick}></i>
+          <i id="left" className="fa-solid fa-chevron-left arrow" onClick={this.moveLeft}></i>
         </div>
         <div className="images">
           <img className="carousel-image" src={carouselImage}></img>
         </div>
         <div>
-          <i id="right" className="fa-solid fa-chevron-right arrow" onClick={this.handleArrowClick}></i>
+          <i id="right" className="fa-solid fa-chevron-right arrow" onClick={this.moveRight}></i>
         </div>
-        <div className="icons" onClick={this.handleButtonClick}>
-          <i id="0" className="circle fa-regular fa-circle fa-solid"></i>
-          <i id="1" className="circle fa-regular fa-circle"></i>
-          <i id="2" className="circle fa-regular fa-circle"></i>
-          <i id="3" className="circle fa-regular fa-circle"></i>
-          <i id="4" className="circle fa-regular fa-circle"></i>
-        </div>
+        <MakeIcons />
       </div>
     );
   }
