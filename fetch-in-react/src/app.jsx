@@ -15,8 +15,7 @@ class App extends React.Component {
     fetch('https://jsonplaceholder.typicode.com/users')
       .then(res => res.json())
       .then(data => this.setState({ users: data }))
-      // eslint-disable-next-line no-console
-      .catch(err => console.err(err));
+      .catch(err => console.error(err));
   }
 
   render() {
