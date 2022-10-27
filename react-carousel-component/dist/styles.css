@@ -1,0 +1,40 @@
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container {
+  border: 2px solid black;
+  margin: 0 auto;
+  height: 75vh;
+}
+
+.arrow {
+  height: 100%;
+  padding: 2rem 0.5rem 0;
+}
+
+.icons {
+  flex-basis: 100%;
+  text-align: center;
+}
+
+.circle {
+  font-size: 0.75rem;
+  padding: 0 0.25rem;
+}
+
+.images {
+  flex-basis: 40%;
+}
+
+.carousel-image {
+  width: 100%;
+}
+
+.circle:hover,
+.arrow:hover {
+  cursor: pointer;
+}
