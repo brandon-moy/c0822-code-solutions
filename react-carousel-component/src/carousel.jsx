@@ -3,13 +3,13 @@ import React from 'react';
 export default class Carousel extends React.Component {
   constructor(props) {
     super(props);
-    this.handleClick = this.handleClick.bind(this);
+    this.handleArrowClick = this.handleArrowClick.bind(this);
     this.handleButtonClick = this.handleButtonClick.bind(this);
     this.carouselCycle = this.carouselCycle.bind(this);
     this.state = { location: 0, intervalId: null };
   }
 
-  handleClick(event) {
+  handleArrowClick(event) {
     clearInterval(this.state.intervalId);
     this.setState({ intervalId: null });
     if (event.target.id === 'right') {
@@ -64,13 +64,13 @@ export default class Carousel extends React.Component {
     return (
       <div className="container row">
         <div>
-          <i id="left" className="fa-solid fa-chevron-left arrow" onClick={this.handleClick}></i>
+          <i id="left" className="fa-solid fa-chevron-left arrow" onClick={this.handleArrowClick}></i>
         </div>
         <div className="images">
           <img className="carousel-image" src={carouselImage}></img>
         </div>
         <div>
-          <i id="right" className="fa-solid fa-chevron-right arrow" onClick={this.handleClick}></i>
+          <i id="right" className="fa-solid fa-chevron-right arrow" onClick={this.handleArrowClick}></i>
         </div>
         <div className="icons" onClick={this.handleButtonClick}>
           <i id="0" className="circle fa-regular fa-circle fa-solid"></i>
