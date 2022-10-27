@@ -62,6 +62,14 @@ export default class Carousel extends React.Component {
     );
   }
 
+  componentDidMount() {
+    this.carouselCycle();
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.state.intervalId);
+  }
+
   render() {
     const carouselImage = this.props.images[this.state.location].src;
     const MakeIcons = this.makeIcons;
