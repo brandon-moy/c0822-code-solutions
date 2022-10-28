@@ -50,9 +50,9 @@ export default class App extends React.Component {
       body: JSON.stringify(newTodo)
     })
       .then(response => response.json())
-      .then(todo => {
-        const newTodos = this.state.todos.concat(todo);
-        this.setState({ todos: newTodos });
+      .then(newTodo => {
+        const updateTodos = this.state.todos.concat(newTodo);
+        this.setState({ todos: updateTodos });
       })
       .catch(err => console.error(err));
   }
@@ -79,8 +79,8 @@ export default class App extends React.Component {
      * TIP: Be sure to SERIALIZE the updates in the body with JSON.stringify()
      * And specify the "Content-Type" header as "application/json"
      */
-    const todoPosition = this.state.todos.findIndex(todo => todo.todoId === todoId);
-    const isCompleted = this.state.todos[todoPosition].isCompleted;
+    const position = this.state.todos.findIndex(todo => todo.todoId === todoId);
+    const isCompleted = this.state.todos[position].isCompleted;
     const toggle = !isCompleted;
     const toggleTodo = { isCompleted: toggle };
 
@@ -92,10 +92,10 @@ export default class App extends React.Component {
       body: JSON.stringify(toggleTodo)
     })
       .then(response => response.json())
-      .then(todo => {
-        const todos = this.state.todos;
-        todos[todoPosition] = todo;
-        this.setState({ todos });
+      .then(toggledTodo => {
+        const updateTodos = this.state.todos;
+        updateTodos[position] = toggledTodo;
+        this.setState({ todos: updateTodos });
       })
       .catch(err => console.error(err));
   }
