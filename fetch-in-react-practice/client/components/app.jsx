@@ -93,7 +93,7 @@ export default class App extends React.Component {
     })
       .then(response => response.json())
       .then(toggledTodo => {
-        const updateTodos = this.state.todos;
+        const updateTodos = [...this.state.todos];
         updateTodos[position] = toggledTodo;
         this.setState({ todos: updateTodos });
       })
