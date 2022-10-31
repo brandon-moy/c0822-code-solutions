@@ -55,10 +55,12 @@ app.post('/api/auth/sign-up', (req, res, next) => {
         })
         .catch(err => {
           console.error(err);
+          next(err);
         });
     })
     .catch(err => {
       console.error(err);
+      next(err);
     });
 });
 
