@@ -1,0 +1,313 @@
+## Start of what happens
+
+We start our server and pgweb which makes sure that we have a location to receive
+HTTP requests to and a database we can query data from.
+
+This is created with an express app which use and require dev-middleware (if the
+process if development), errorMiddleware, and client-error (the last two are to
+catch and respond to errors).
+
+When the user first logs into the site it sends a 'GET' request to the server
+(in our case localhost:3000)
+
+The static middleware checks our directory for a file that it can use (looks for
+an index file). It parses for the information it wants and when it gets to
+main.js it looks for a main.js file. Because we do not have one, I want to say
+that when the server is running, webpack bundles out js files and creates the
+main.js file that we need to run which gets its directions from webpack.config.js.
+
+Once the browser receives the files it then parses the data and the rest of the
+DOM is created from our React code.
+
+## Flow of DOM creation (I'm going to go ahead and just let the assumption be
+that imports are imported when jumping to page but I will specify where items
+are being imported from when used (ಥ◡ಥ) )
+
+index.jsx
+  - We query for the DOM elemenet with id attribute value of 'root'
+  - that DOM element is made to be the root with ReactDOM.createRoot
+  - the root renders a React element type App which is imported from the './app'
+    module
+
+app.jsx
+App is the default export from the module and it is a class that extends
+React.Component
+
+The App class constructor method runs
+  - super function runs with one argument the props. This calls the constructor
+    of the parent class (React.Component)
+  - the state of this object is set with user: null, isAuthorizing: null, and
+    route which is the return of the parseRoute function being called on the
+    hash property of the location property of the window object.
+  - handleSignIn and handleSignOut are bound to this
+
+The render prototype method runs
+  - if the isAuthorizing property of the state property of this object is truthy,
+    the render function returns null (guard clause)
+  - There are properties being destructured from the state property of this
+    object as well as some being destructored from this object and then they are
+    set as property and value pairs of an object literal assigned to the variable
+    contextValue
+  - the result of an expression is being returned from the render function
+
+  - inside the return expression:
+    - There is a React element type Provider with context from AppContext and
+      prop value with a value of a JavaScript expression value of variable
+      contextValue
+    - there is a React fragment with multiple children
+      - the first child is a React element type Navbar with no props and no
+        children
+        - Navbar was imported from './components/navbar.jsx and uses the context
+          from Provider to user the user and handleSignOut properties
+      - the second child is a React element type PageContainer with no props and
+        a child of a JavaScript expression the renderPage method of this object
+        being called
+        - PageContainer was imported from './components/page-container.jsx
+          PageContainer is a function that returns some more React elements
+          - the renderPage method runs conditional logic to determine whether to
+            return the React element type Home, Auth, or NotFound
+
+The componentDidMount prototype method runs
+  - This method mounts an eventListener to the window object for a hashchange
+    event
+  - It pulls the something from localStorage and assigns its value to token
+  - if there is a token, the token is decoded with jwtDecode and then the
+    setState method of this object is run to update the user and isAuthorizing
+    properties
+  - setState then triggers a rerender and runs the above render prototype method
+    again
+
+
+
+## User can sign up.
+
+/client/components/auth-form.jsx
+Anytime the client types anything it triggers the handleChange prototype method
+which updates the state's name property with the new value (username or password)
+  - setState triggers a rerender
+
+When the form is submitted the page is stopped from refreshing because of the
+preventDefault method being called on the event object.
+  - action property is being destructured from the props property of this
+    object which was passed as a prop when the React element type AuthForm was
+    rendered in ../pages/auth.jsx
+  - action is used to determine what location of our server we are sending
+    our fetch request.
+  - Then a fetch request is sent to the server at the location created from the
+    action.
+    - the body of the fetch request is a stringified version of the state
+      property of this object which containers a username and a password
+
+/server/index.js
+A 'POST' request is sent to the database containing a username and a password
+from the client.
+  - if username or password are invalid a ClientError is thrown (yeet) and
+    client is told 'username and password are required fields'
+  - if username and password are valid -> argon2 hashes the password
+    - then -> sql code is written to insert the username and hashedPassword into
+      the database and returns the userId, username, and createdAt
+      - the database is queried with the sql code and our user provided
+        information in an array to protect the db from an injection attack
+    - then -> the status code is updated to 201 and the return from the last
+      promise is sent back to the client
+  - any rejected promises or thrown ClientErrors are caught and sent to the
+    error middleware in server/error-middleware.js
+
+/client/components/auth-form.jsx
+Once the response is received from /server/index.js
+  - The promise is fulfilled and the body of the response is parsed
+  - then -> in the conditional logic because the action === 'sign-up' the
+    hash is changed to 'sign-in'
+
+./app.jsx
+The hash update then triggers the 'hashchange' eventListener
+  - The setState method is called on this object and the value of the route
+    property is updated
+  - setState triggers a rerender of the page
+
+
+
+## User can sign in.
+
+/client/components/auth-form.jsx
+Anytime the client types anything it triggers the handleChange prototype method
+which updates the state's name property with the new value (username or password)
+  - setState triggers a rerender
+
+When the form is submitted the page is stopped from refreshing because of the
+preventDefault method being called on the event object.
+  - action property is being destructured from the props property of this
+    object which was passed as a prop when the React element type AuthForm was
+    rendered in ../pages/auth.jsx
+  - action is used to determine what location of our server we are sending
+    our fetch request.
+  - Then a fetch request is sent to the server at the location created from the
+    action.
+    - the body of the fetch request is a stringified version of the state
+      property of this object which containers a username and a password
+
+/server/index.js
+A 'POST' request is sent to the database containing a username and a password
+from the client.
+  - if username or password are invalid a ClientError is thrown (yeet)
+  - sql code is written to select the userId and hashedPassword from
+    the database where the username matches the username provided by the client
+  - the database is queried with the sql code and username in an array for the
+    db to protect itself from injection attacks
+  - then -> the first element is destructured from the rows property of the
+    result object and assigned to the variable user
+    - if "not" user, a ClientError is thrown (yeet) and client is told
+      'invalid login'
+    - otherwise the userId and hashedPassword are destructured from the user
+    - argon2 is used to verify the hashedPassword and user provided password
+      - then -> if the response is falsy a ClientError is thrown (yeet) and
+        client is told 'invalid login'
+      - if they are matching then a payload object is created from the userId and
+        username and a token is created with jwt
+        - an object is sent as the response with the property/value token and
+          property user with value of the payload
+  - any rejected promises or thrown ClientErrors are caught and sent to the
+    error middleware in server/error-middleware.js
+
+/client/components/auth-form.jsx
+Once the response is received from /server/index.js
+  - The promise is fulfilled and the body of the response is parsed
+  - then -> in the conditional logic because the action === 'sign-up' is falsy,
+      the next condition checks if the results user and token properties are
+      truthy if they are then the onSignIn method of the props property of this
+      object is called with the argument of the results
+      ({ token, user: payload })
+
+/pages/auth.jsx
+We check here for the onSignIn prop which has a value of handleSignIn.
+handleSignIn is taken from the context of this object so we have to go back out
+another layer.
+
+./app.jsx
+The handleSignIn is run here which destructures the user and token properties
+from the result and names them as variables
+  - the token is saved in localStorage with the name 'react-context-jwt' and the
+      state is set with the updated value of user.
+    - setState triggers a rerender
+
+This time when it rerenders, the path is still 'sign-in' which returns the React
+element type Auth
+
+/pages/auth.jsx
+In the render, there is a condition that if user is truthy (which is now has a
+value), then it returns the React element Redirect with the prop to and value
+of "".
+
+/components/redirect.jsx
+Redirect creates a new url and if the prop "to" is equal to an empty string ""
+(which it is in this case) the url hash is updated to '#'
+  - This triggers the hashchange event that was mounted to the window object
+
+/app.jsx
+  - The state of this object is set with the route being the new
+    window.location.hash
+  - setState triggers a rerender
+  - This time when render page is ru, because the route property of the state
+    property of this object is now a '' (from the parseRoute function changing
+     "#" to "") the React element type Home is returned
+
+/pages/home.jsx
+  - Here we check again in the render if the user of the context property of
+    this object is falsy (which it is not in this case)
+    - A expression containing a React element is returned from the function
+        expression gifContainer property of the styles object and a child
+      - The React element type div with prop style value of a JavaScript
+        the child is a React element iframe with multiple props and no children
+      - These elements are returned from the function to be rendered with the page
+
+/app.jsx
+  - Once the Home element is returned we complete the render of the page
+
+
+
+## User can stay signed in (even if they refresh the page).
+
+We saw from the last "explanation" that the local storage is set with the value
+of the token. This is how we can stay signed in even when the page refreshed.
+
+After everything is rendered, the componentDidMount method is run.
+  - What we care about is that the getItem method of the localStorage property
+    of the window object is called with the argument 'react-context-jwt'
+    (the same property name we set the item with in the last example)
+    - the value of getting the item is set to the variable token
+  - Token is then evaluated with a ternary expression and if true returns the
+    return of the function jwtDecode being called with the argument being the
+    variable token and if false returns null.
+  - because we just signed in and set the item to localStorage, the value is true
+    and user is assigned the value of the decoded token.
+  - the state property of this object is set with user updated with the new user
+    property and isAuthorizing set to false because we have been verified
+    - setState triggers a rerender
+
+This time the path should be '' because of returning to the page and "normies"
+wouldn't type in a hash to go to a website.
+  - SO when we are in the render it runs renderPage
+    - renderPage checks the path which should be '' and return the React element
+      type Home and we know what Home does from the earlier explanation
+
+BUT IN CASE YOU FORGOT OR I DESTROYED YOUR BRAIN WITH MY OVER EXCESSIVE AMOUNT OF
+TYPING. . . ( ಠ╭╮ಠ)
+
+/pages/home.jsx
+  - Here we check again in the render if the user of the context property of this
+    object is falsy (which it is not in this case)
+    - A expression containing a React element is returned from the function
+      - The React element type div with prop style value of a JavaScript
+        expression gifContainer property of the styles object and a child
+          the child is a React element iframe with multiple props and no children
+      - These elements are returned from the function to be rendered with the page
+
+/app.jsx
+  - Once the Home element is returned we complete the render of the page
+
+
+
+## User can sign out.
+
+/components/navbar.jsx
+When the page was rendered, when a user is signed in there is a React element
+type button with the onClick prop value of the JavaScript expression
+handleSignOut. This is pulled from the App class in ../app.jsx because of
+the context.
+
+/app.jsx
+  - handleSign out removes the 'react-context-jwt' item from localStorage.
+    (this is the value of the token generated when a user signs in)
+  - the state of this object is set with the property user and a value of null
+  - setState triggers a rerender
+
+  - this time when it runs to the renderPage in the PageContainer React element,
+    it goes to return the Home React element because the path is === ''
+
+/pages/home.jsx
+  - inside of Home's render method, it checks if the user is falsy in the
+    context which is is because onSignOut just set the user to null
+  - this returns a React element type Redirect with the "to" prop value "sign-in"
+
+/component/redirect.jsx
+  - This function takes the prop (to="sign-in") and creates a new url. The hash
+    property of the url is set to the to property of the props ("sign-in") and
+    then the location property of the window object is replaced with the new url.
+  - null is returned from the function because we don't care about a return
+
+/app.js
+  - The update of the hash triggers the hashchange event on the window object
+    that was mounted after the first render. This updates with state with the
+    new route but parsing the route (removes '#' and replaces with '', splits
+    it, and returns an object with the path and newUrlSearchparams)
+  - setState triggers a rerender
+
+  - render() runs through again until it gets to the child of the PageContainer
+  React element which is a JavaScript expression of the renderPage method of this
+  object being called.
+
+  -renderPage() checked the path which is now 'sign-in' and returns the React
+  element type Auth
+  - and we know what the React element type Auth does from /pages/auth.jsx
+
+  The End 〆(。。)
