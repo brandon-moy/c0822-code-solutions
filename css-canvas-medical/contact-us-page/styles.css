@@ -1,0 +1,37 @@
+.width {
+  width: 900px;
+}
+
+.row {
+  display: flex;
+}
+
+header {
+  justify-content: space-between;
+  font-family: Avenir, sans-serif;
+  margin: 1rem auto;
+}
+
+.border-line {
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid grey;
+}
+
+.canvas-logo-blue {
+  width: 8rem;
+}
+
+.nav-link {
+  color: grey;
+  font-size: 0.85rem;
+  text-decoration: none;
+  margin-left: 2.25rem;
+}
+
+.contact-us-button {
+  color: white;
+  background-color: navy;
+  border-radius: 0.25rem;
+  padding: 0.5rem 0.75rem;
+  margin-left: 1rem;
+}

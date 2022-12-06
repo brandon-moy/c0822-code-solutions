@@ -1,0 +1,258 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1.75rem;
+}
+
+.full-border {
+  border-bottom: 1px solid rgb(231 231 231);
+}
+
+.full-border-top {
+  border-bottom: 1px solid rgb(231 231 231);
+  margin-top: 12rem;
+}
+
+.margin {
+  width: 1100px;
+  margin: auto;
+}
+
+body {
+  font-family: Avenir, sans-serif;
+  color: rgb(68 68 68);
+  margin: 2rem auto;
+}
+
+.nav-links {
+  text-decoration: none;
+  color: rgb(110 110 110);
+  font-size: 17px;
+  margin-left: 2.75rem;
+}
+
+.contact-us {
+  text-decoration: none;
+  color: white;
+  font-size: 17px;
+  background-color: #0a4265;
+  border-radius: 0.25rem;
+  padding: 0.75rem 1.25rem;
+  margin-left: 1.25rem;
+}
+
+.canvas-logo-blue {
+  width: 9.75rem;
+}
+
+#canvas-logo-white {
+  width: 9.5rem;
+}
+
+#get-started1 {
+  border: 1px solid #0a4265;
+  background-color: #0a4265;
+  border-radius: 0.35rem;
+  padding: 1.25rem 3.65rem;
+  color: white;
+  text-decoration: none;
+  font-family: Avenir, Arial, Helvetica, sans-serif;
+  font-size: 22px;
+  margin-left: 5.25rem;
+  position: absolute;
+  bottom: 8rem;
+}
+
+#get-started2 {
+  border: 1px solid #0a4265;
+  background-color: #0a4265;
+  border-radius: 0.35rem;
+  padding: 1.25rem 3.65rem;
+  color: white;
+  text-decoration: none;
+  font-family: Avenir, Arial, Helvetica, sans-serif;
+  font-size: 22px;
+  margin-top: 2rem;
+}
+
+.hero {
+  position: relative;
+  height: 525px;
+  margin-top: 8.5rem;
+  margin-bottom: 4rem;
+}
+
+.hero-image {
+  background-image: url("images/hero.jpg");
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  filter: brightness(85%) contrast(75%);
+}
+
+.hero-text-section {
+  color: white;
+  position: absolute;
+  width: 56%;
+  padding: 2rem 0 0 4rem;
+}
+
+.hero-header {
+  font-family: "Tiempos Headline", sans-serif;
+  font-size: 38px;
+  font-weight: 400;
+  margin-bottom: 1rem;
+}
+
+.hero-text {
+  line-height: 1.5rem;
+  font-size: 17px;
+  margin-bottom: 3rem;
+}
+
+.preferred-locations {
+  text-align: center;
+  color: #6e6e6e;
+}
+
+.grey-background {
+  background-color: rgb(252 252 252);
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.learn-more-h,
+.clinicians-h {
+  font-family: "Tiempos Headline", sans-serif;
+  font-size: 2rem;
+  text-align: center;
+  letter-spacing: 1px;
+  margin-bottom: 1.25rem;
+  color: #6e6e6e;
+}
+
+.clinicians-p {
+  font-family: Avenir, sans-serif;
+  font-size: 17px;
+  margin: 0 auto 4rem;
+  width: 40%;
+  line-height: 2rem;
+}
+
+.row {
+  display: flex;
+  justify-content: space-around;
+  font-family: Avenir, sans-serif;
+  font-size: 24px;
+  letter-spacing: 0.25px;
+  text-align: center;
+}
+
+.learn-more {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.learn-more-half > h3 {
+  font-family: "Tiempos Headline", sans-serif;
+  font-size: 31px;
+  font-weight: 400;
+  margin-bottom: 0.75rem;
+}
+
+.learn-more-half > p {
+  font-size: 17px;
+}
+
+.get-started-button {
+  text-decoration: none;
+  color: white;
+  background-color: #0a4265;
+  font-size: 20px;
+  border-radius: 0.25rem;
+  padding: 1rem 2.75rem;
+}
+
+.dark-grey-background {
+  background-color: rgb(100 100 100);
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.contact-info {
+  width: 1300px;
+  padding: 5.5rem;
+  margin: auto;
+}
+
+.contact-box {
+  display: flex;
+  color: white;
+}
+
+.column-half {
+  flex-basis: 50%;
+}
+
+.column-quarter {
+  flex-basis: 25%;
+}
+
+.address {
+  padding: 0;
+  margin-top: 3rem;
+  line-height: 1.75rem;
+  font-size: 17px;
+}
+
+.column-half > p {
+  margin-top: 3rem;
+  line-height: 2rem;
+  font-size: 18px;
+}
+
+.info-links {
+  font-size: 20px;
+  line-height: 3rem;
+  text-decoration: none;
+  color: white;
+}
+
+ul {
+  list-style-type: none;
+  color: white;
+  padding-left: 0;
+}
+
+li > a {
+  text-decoration: none;
+  color: white;
+}
+
+.column-quarter-header {
+  text-transform: uppercase;
+  font-size: 21px;
+  font-weight: 400;
+  margin-top: 0;
+}
+
+footer {
+  margin: 3.5rem auto;
+  width: 1100px;
+}
+
+.privacy-contact {
+  text-decoration: none;
+  color: rgb(131 131 131);
+  font-weight: 600;
+  font-size: 18px;
+  margin-right: 2rem;
+}
