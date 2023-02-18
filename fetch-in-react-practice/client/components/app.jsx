@@ -11,6 +11,19 @@ export default class App extends React.Component {
     };
     this.addTodo = this.addTodo.bind(this);
     this.toggleCompleted = this.toggleCompleted.bind(this);
+    this.fetchData = this.fetchData.bind(this);
+  }
+
+  async fetchData() {
+    try {
+      const response = await fetch('/api/todos');
+      if (response.ok) {
+        const todos = await response.json();
+        this.setState({ todos });
+      }
+    } catch (err) {
+      console.error(err);
+    }
   }
 
   componentDidMount() {
@@ -19,13 +32,14 @@ export default class App extends React.Component {
      * Then 😉, once the response JSON is received and parsed,
      * update state with the received todos.
      */
-    fetch('/api/todos')
-      .then(response => response.json())
-      .then(todos => this.setState({ todos }))
-      .catch(err => console.error(err));
+    // fetch('/api/todos')
+    //   .then(response => response.json())
+    //   .then(todos => this.setState({ todos }))
+    //   .catch(err => console.error(err));
+    this.fetchData();
   }
 
-  addTodo(newTodo) {
+  async addTodo(newTodo) {
     /**
     * Use fetch to send a POST request to `/api/todos`.
     * Then 😉, once the response JSON is received and parsed,
@@ -42,22 +56,39 @@ export default class App extends React.Component {
     * TIP: Use Array.prototype.concat to create a new array containing the contents
     * of the old array, plus the object returned by the server.
     */
-    fetch('/api/todos', {
+    const method = {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(newTodo)
-    })
-      .then(response => response.json())
-      .then(newTodo => {
+    };
+    try {
+      const response = await fetch('/api/todos', method);
+      if (response.ok) {
+        const newTodo = await response.json();
         const updateTodos = this.state.todos.concat(newTodo);
         this.setState({ todos: updateTodos });
-      })
-      .catch(err => console.error(err));
+      }
+    } catch (err) {
+      console.error(err);
+    }
+    // fetch('/api/todos', {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json'
+    //   },
+    //   body: JSON.stringify(newTodo)
+    // })
+    //   .then(response => response.json())
+    //   .then(newTodo => {
+    //     const updateTodos = this.state.todos.concat(newTodo);
+    //     this.setState({ todos: updateTodos });
+    //   })
+    //   .catch(err => console.error(err));
   }
 
-  toggleCompleted(todoId) {
+  async toggleCompleted(todoId) {
     /**
      * Find the index of the todo with the matching todoId in the state array.
      * Get its "isCompleted" status.
@@ -83,21 +114,38 @@ export default class App extends React.Component {
     const isCompleted = this.state.todos[position].isCompleted;
     const toggle = !isCompleted;
     const toggleTodo = { isCompleted: toggle };
-
-    fetch(`/api/todos/${todoId}`, {
+    // fetch(`/api/todos/${todoId}`, {
+    //   method: 'PATCH',
+    //   headers: {
+    //     'Content-type': 'application/json'
+    //   },
+    //   body: JSON.stringify(toggleTodo)
+    // })
+    //   .then(response => response.json())
+    //   .then(toggledTodo => {
+    //     const updateTodos = [...this.state.todos];
+    //     updateTodos[position] = toggledTodo;
+    //     this.setState({ todos: updateTodos });
+    //   })
+    //   .catch(err => console.error(err));
+    const method = {
       method: 'PATCH',
       headers: {
         'Content-type': 'application/json'
       },
       body: JSON.stringify(toggleTodo)
-    })
-      .then(response => response.json())
-      .then(toggledTodo => {
+    };
+    try {
+      const response = await fetch(`/api/todos/${todoId}`, method);
+      if (response.ok) {
+        const toggledTodo = await response.json();
         const updateTodos = [...this.state.todos];
         updateTodos[position] = toggledTodo;
         this.setState({ todos: updateTodos });
-      })
-      .catch(err => console.error(err));
+      }
+    } catch (err) {
+      console.error(err);
+    }
   }
 
   render() {
