@@ -8,13 +8,23 @@ class App extends React.Component {
       users: [],
       isLoading: true
     };
+    this.fetchData = this.fetchData.bind(this);
+  }
+
+  async fetchData() {
+    try {
+      const response = await fetch('https://jsonplaceholder.typicode.com/users');
+      if (response.ok) {
+        const data = await response.json();
+        this.setState({ users: data, isLoading: false });
+      }
+    } catch (err) {
+      console.error(err);
+    }
   }
 
   componentDidMount() {
-    fetch('https://jsonplaceholder.typicode.com/users')
-      .then(res => res.json())
-      .then(data => this.setState({ users: data, isLoading: false }))
-      .catch(err => console.error(err));
+    this.fetchData();
   }
 
   render() {
